@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+		SpringMVC 的 IOC 容器中的 bean 可以来引用 Spring IOC 容器中的 bean.
+		反过来呢 ? 反之则不行. Spring IOC 容器中的 bean 却不能来引用 SpringMVC IOC 容器中的 bean!
+	-->
+    <!-- 设置use-default-filters为false，不适用默认的扫描策略，而根据指定的策略扫描 -->
+    <context:component-scan base-package="com.meng.chatonline" use-default-filters="false">
+        <context:include-filter type="annotation"
+                 expression="org.springframework.stereotype.Controller"></context:include-filter>
+        <context:include-filter type="annotation"
+                 expression="org.springframework.web.bind.annotation.ControllerAdvice"></context:include-filter>
+    </context:component-scan>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+
+    <!-- 配置国际化资源文件 -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="i18n"></property>
+    </bean>
+
+</beans>

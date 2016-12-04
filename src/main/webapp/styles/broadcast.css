@@ -1,0 +1,66 @@
+#broadcastPanel{
+    width:999px;
+    height:599px;
+    background-color:aliceblue;
+    border:1px solid;
+}
+
+#broadcastHeadText{
+    background-color:burlywood;
+    height:20px;
+}
+#broadcastList
+{
+    width:999px;
+    height:577px;
+    /*设置div有滚动条*/
+    overflow-y: scroll;
+}
+
+#title{
+    width:700px;
+}
+#content{
+    width:700px;
+    height:450px;
+}
+
+ul{
+    padding-left: 0;
+}
+ul li {
+    /*取消 li 节点前的·*/
+    list-style-type: none;
+}
+.broadcastMsgPanel{
+    width:95%;
+    background-color:white;
+    margin:10px;
+}
+.broadcastTitle{
+    font-family:黑体;
+    font-size:25px;
+    text-align: left;
+    margin-bottom:5px;
+}
+.broadcastContent{
+    font-size:18px;
+    text-align: left;
+    /*设置自动换行*/
+    word-break:break-all;
+}
+.controlContent{
+    text-align:right;
+    font-size:15px;
+    /*margin-bottom:30px;*/
+}
+.broadcastFrom{
+    font-size:15px;
+    text-align:right;
+    margin-top: 10px;
+}
+
+.error{
+    font-size:15px;
+    color: red;
+}

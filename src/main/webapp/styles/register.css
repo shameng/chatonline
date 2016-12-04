@@ -1,0 +1,22 @@
+#registerPanel{
+    width:999px;
+    height:599px;
+    background-color: aliceblue;
+    border:1px solid;
+}
+.tdText{
+    text-align: right;
+}
+form input{
+    width: 200px;
+    height: 30px;
+    margin-top: 15px;
+}
+#registerHeadText{
+    background-color:burlywood;
+    height:20px;
+}
+.error{
+    font-size:15px;
+    color:red;
+}

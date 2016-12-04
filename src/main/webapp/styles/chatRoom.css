@@ -1,0 +1,115 @@
+*{
+    margin:0 auto;
+}
+/*用户列表面板*/
+#userPanel{
+    width: 198px;
+    height: 599px;
+    background-color: bisque;
+    border:1px solid;
+    float: left;
+}
+#userPanelText{
+    height: 24px;;
+    background-color:aqua;
+    border-bottom: 1px solid;
+    /*禁止文字选中*/
+    -moz-user-select:none;/*火狐*/
+    -webkit-user-select:none;/*webkit浏览器*/
+    -ms-user-select:none;/*IE10*/
+    -khtml-user-select:none;/*早期浏览器*/
+    user-select:none;
+    /*光标保持默认*/
+    cursor: default;
+}
+#userList{
+    height: 574px;
+    /*设置div有滚动条*/
+    overflow-y: scroll;
+}
+ul{
+    padding-left: 0;
+    margin: 0;
+}
+ul li{
+    /*取消 li 节点前的·*/
+    /*list-style-type: none;*/
+    margin-left:50px;
+    text-align:left;
+}
+ul div{
+    /*光标保持默认*/
+    cursor: default;
+    width:100%;
+}
+
+/*聊天面板*/
+#chatPanel{
+    width: 798px;
+    height: 100%;
+    background-color: aliceblue;
+    float:right;
+    border:1px solid;
+    margin:0 auto;
+    /*border-bottom:1px solid;*/
+    /*border-top:1px solid;*/
+}
+
+/*聊天记录面板*/
+#chatRecord{
+    width: 798px;
+    height: 450px;
+    float:right;
+}
+#withWhoPanel{
+    background-color:burlywood;
+    height:20px;
+}
+/*聊天记录内容*/
+.content{
+    width:798px;
+    height:428px;
+    /*设置默认为隐藏状态*/
+    display: none;
+    /*设置div有滚动条*/
+    overflow-y: scroll;
+}
+
+/*消息填写textarea*/
+#message{
+    width:798px;
+    height:120px;
+    /*禁止拖动*/
+    resize: none;
+    float:right;
+}
+
+.myMsgPanel{
+    width:90%;
+    float:right;
+}
+.myMsgDate{
+    text-align:right;
+    font-size: small;
+}
+.myMsg{
+    background-color:cadetblue;
+    text-align:left;
+    /*设置自动换行*/
+    word-break:break-all;
+    margin-bottom:3px;
+}
+.remoteMsgPanel{
+    width:90%;
+    float:left;
+}
+.remoteMsgDate{
+    text-align:left;
+    font-size: small;
+}
+.remoteMsg{
+    background-color: darkkhaki;
+    text-align:left;
+    /*设置自动换行*/
+    word-break:break-all;
+}

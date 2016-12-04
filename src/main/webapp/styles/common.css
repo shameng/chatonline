@@ -1,0 +1,29 @@
+body{
+    /*-moz-background-size: 100%;*/
+    /*-o-background-size: 100%;*/
+    /*-webkit-background-size: 100%;*/
+    /*background-size: 1000px;*/
+    margin:0 auto;
+    background: url("../images/lufei.jpg");
+    /*background-repeat: no-repeat;*/
+}
+
+.userName{
+    font-weight:bold;
+    font-style:normal;
+}
+
+#headDiv{
+    width: 1000px;
+    height: 600px;
+    position: absolute;
+    top:20px;
+    /*设置水平居中,margin-left必须为width的一半*/
+    left:50%;
+    margin-left:-500px;
+}
+
+#navigation{
+    width:1000px;
+    text-align:left;
+}

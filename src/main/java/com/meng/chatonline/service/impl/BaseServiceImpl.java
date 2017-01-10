@@ -71,20 +71,20 @@ public abstract class BaseServiceImpl<T> implements BaseService<T>
 		return dao.getEntity(id);
 	}
 
-	@Transactional
+//	@Transactional
 	public List<T> findEntityByJPQL(String jpql, Object... objects) {
 		return dao.findEntityByJPQL(jpql, objects);
 	}
 	
 	//单值检索，要确保查询结果有且只有一条记录
-	@Transactional
+//	@Transactional
 	public Object uniqueResult(String jpql, Object... objects)
 	{
 		return dao.uniqueResult(jpql, objects);
 	}
 	
 	//查找所有的实体
-	@Transactional
+//	@Transactional
 	public List<T> findAllEntities()
 	{
 		String jpql = "from " + clazz.getSimpleName();
@@ -92,8 +92,8 @@ public abstract class BaseServiceImpl<T> implements BaseService<T>
 	}
 	
 	//执行sql语句
-	@Transactional
-	public List<T> executeSQLQuery(Class clazz, String sql, Object...objects)
+//	@Transactional
+	public <R> List<R> executeSQLQuery(Class<R> clazz, String sql, Object...objects)
 	{
 		return dao.executeSQLQuery(clazz, sql, objects);
 	}

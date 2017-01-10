@@ -1,3 +1,3 @@
 <%
-    response.sendRedirect("login");
+    response.sendRedirect("chatRoom");
 %>

@@ -7,6 +7,7 @@ import com.meng.chatonline.service.MessageService;
 import com.meng.chatonline.service.UserService;
 import com.meng.chatonline.websocket.MyWebSocketHandler;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,7 @@ public class ChatController
     @Resource
     private MessageService messageService;
 
+    @RequiresPermissions("chatRoom:chatRoom")
     @RequestMapping({"","/"})
     public String toChatRoom(HttpServletRequest request, HttpSession session)
     {
@@ -42,6 +44,7 @@ public class ChatController
         return "chatRoom";
     }
 
+    @RequiresPermissions("chatRoom:historyChatRecord")
     @ResponseBody
     @RequestMapping("/showHistoryChatRecord")
     public List<Message> showHistoryChatRecord(HttpServletRequest request)

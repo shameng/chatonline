@@ -1,5 +1,6 @@
 package com.meng.chatonline.websocket;
 
+import com.meng.chatonline.model.ActiveUser;
 import com.meng.chatonline.model.User;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
@@ -24,7 +25,7 @@ public class HandShake implements HandshakeInterceptor
         {
             ServletServerHttpRequest request = (ServletServerHttpRequest) serverHttpRequest;
             HttpSession session = request.getServletRequest().getSession(false);
-            User user = (User) session.getAttribute("user");
+            ActiveUser user = (ActiveUser) session.getAttribute("user");
             if (user != null)
             {
                 Integer uid = user.getId();

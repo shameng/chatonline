@@ -1,0 +1,52 @@
+#securityList
+{
+    width:999px;
+    height:577px;
+    /*设置div有滚动条*/
+    overflow-y: scroll;
+}
+#securityList table
+{
+    width:900px;
+}
+.menu
+{
+    background-color : green;
+}
+.auth
+{
+    background-color : greenyellow;
+}
+/*把table里的tr分隔开指定距离*/
+.formTable
+{
+    border-collapse:separate;
+    border-spacing:0px 10px;
+}
+ul
+{
+    margin:0 0 0 50px;
+    padding:0;
+}
+ul li
+{
+    text-align: left;
+}
+.unavailable
+{
+    color: darkgray;
+}
+.multipleSelect
+{
+    width:170px;
+    height: 220px;
+}
+.btn
+{
+    width: 40px;
+}
+.text
+{
+    width:250px;
+}
+

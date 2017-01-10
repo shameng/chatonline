@@ -24,5 +24,5 @@ public interface BaseService<T> {
 	//查找所有的实体
 	public List<T> findAllEntities();
 	//执行sql语句，可以通过制定clazz是否为空指定是否封装为实体
-	public List<T> executeSQLQuery(Class clazz, String sql, Object...objects);
+	public <R> List<R> executeSQLQuery(Class<R> clazz, String sql, Object...objects);
 }

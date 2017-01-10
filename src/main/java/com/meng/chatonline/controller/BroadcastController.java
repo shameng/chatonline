@@ -1,12 +1,13 @@
 package com.meng.chatonline.controller;
 
+import com.meng.chatonline.model.ActiveUser;
 import com.meng.chatonline.model.Broadcast;
 import com.meng.chatonline.model.User;
 import com.meng.chatonline.service.BroadcastService;
 import com.meng.chatonline.websocket.MyWebSocketHandler;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,11 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.io.ByteArrayOutputStream;
 import java.util.List;
 import java.util.Map;
-
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
 
 /**
  * @Author xindemeng
@@ -33,6 +31,7 @@ public class BroadcastController
     @Resource
     private MyWebSocketHandler webSocketHandler;
 
+    @RequiresPermissions("broadcast:query")
     @RequestMapping({"","/"})
     public String broadcast(Map<String, Object> map)
     {
@@ -41,6 +40,7 @@ public class BroadcastController
         return "broadcast";
     }
 
+    @RequiresPermissions("broadcast:create")
     @RequestMapping("/newBroadcast")
     public String newBroadcast(Map<String, Object> map)
     {
@@ -48,9 +48,9 @@ public class BroadcastController
         return "editBroadcast";
     }
 
+    @RequiresPermissions("broadcast:create")
     @RequestMapping(value="/newBroadcast", method = RequestMethod.POST)
-    public String newBroadcast(@Valid Broadcast broadcast, BindingResult result, HttpSession session,
-                               Map<String, Object> map)
+    public String newBroadcast(@Valid Broadcast broadcast, BindingResult result, HttpSession session)
     {
         //如果有不合要求的输入
         if (result.getFieldErrorCount() > 0)
@@ -60,13 +60,13 @@ public class BroadcastController
 //            {
 //                System.out.println(error.getField() + ":" + error.getDefaultMessage());
 //            }
-            List<Broadcast> broadcastList = broadcastService.getBroadcastList();
-            map.put("broadcastList", broadcastList);
+//            List<Broadcast> broadcastList = broadcastService.getBroadcastList();
+//            map.put("broadcastList", broadcastList);
             return "editBroadcast";
         }
 
-        User user = (User) session.getAttribute("user");
-        broadcast.setUtterer(user);
+        ActiveUser user = (ActiveUser) session.getAttribute("user");
+        broadcast.setUtterer(new User(user.getId()));
         broadcastService.saveBroadcast(broadcast);
 
         //广播公告
@@ -75,6 +75,7 @@ public class BroadcastController
         return "redirect:/broadcast";
     }
 
+    @RequiresPermissions("broadcast:delete")
     @ResponseBody
     @RequestMapping("/deleteBroadcast")
     public String deleteBroadcast(@RequestParam(value = "id",required = true) String id)

@@ -97,7 +97,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T>
 		return query.getSingleResult();
 	}
 	
-	public List<T> executeSQLQuery(Class clazz, String sql, Object...objects)
+	public <R> List<R> executeSQLQuery(Class<R> clazz, String sql, Object...objects)
 	{
 		Query query = entityManager.createNativeQuery(sql);
 		//封装为实体

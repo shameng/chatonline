@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.meng.chatonline.Param" %><%--
   Created by IntelliJ IDEA.
   User: bang
   Date: 2016/11/3
@@ -55,6 +55,8 @@
                 {
                     return;
                 }
+                $("#message").attr("disabled", false);
+
                 toUserName = $(userDiv).attr("title");
                 toUserId = $(userDiv).children(":hidden").val();
 
@@ -104,26 +106,28 @@
                 var data = JSON.parse(event.data);
                 //如果不是公告
                 if (data.type == null) {
-                    console.log("WebSocket:收到一条通知", data);
+                    console.log("WebSocket:收到一条消息", data);
                     $("#with" + data.fromUser.id + "content").append("<div class='remoteMsgPanel'>" +
                             "<div class='remoteMsgDate'>" + data.fromUser.name + "&nbsp;" + data.date +
                             "</div><div class='remoteMsg'>" + data.text + "</div></div>");
 
                     //如果当前正在聊天的对象不等于发来消息的对象
                     if (data.fromUser.id != toUserId) {
-                        //把对应用户列表中的用户背景颜色改为其他显眼颜色
-                        $("#" + data.fromUser.id + "colorUserDiv li").append("&nbsp;" +
-                           "<img src='${messagePromptImage}' width='${imageWidth}' height='${imageHeight}'>");
+                        //把对应用户列表中的用户添加“新消息”的图案
+                        //当后面没有这个图案时才添加
+                        if ($("#" + data.fromUser.id + "colorUserDiv img").length == 0)
+                            $("#" + data.fromUser.id + "colorUserDiv li").append("&nbsp;" +
+                                "<img src='${messagePromptImage}' width='${imageWidth}' height='${imageHeight}'>");
                     }
 
                     scrollToBottom("with" + data.fromUser.id + "content");
                 }
                 else{
                     //如果是登陆广播
-                    if (data.type == 1) {
+                    if (data.type == <%=Param.LOGIN_BROADCAST_TYPE%>) {
                         var user = data.utterer;
                         if ($("#"+user.id+"colorUserDiv")[0] == null) {
-                            console.log("有用户登陆.");
+                            console.log("用户"+user.name+"登陆.");
                             $("#userList ul").append("<div id='" + user.id + "colorUserDiv' class='userDiv'" +
                                     " title='" + user.name + "'><li>" + user.name + "</li>" +
                                     "<input type='hidden' value='" + user.id + "'/></div>")
@@ -134,7 +138,7 @@
                         }
                     }
                     //如果是注销广播
-                    else if (data.type == 2) {
+                    else if (data.type == <%=Param.LOGOUT_BROADCAST_TYPE%>) {
                         var user = data.utterer;
                         console.log("用户" + user.name + "注销登录.");
                         $("#" + user.id + "colorUserDiv").remove();
@@ -145,7 +149,7 @@
                     //如果是公告广播
                     else {
                         if (data.utterer.id != ${sessionScope.user.id}) {
-                            console.log("有新公告发布", data);
+                            console.log(data.utterer.name+"发布了新公告", data);
                             var flag = confirm("有新公告发布，是否马上前往查看？");
                             if (flag) {
                                 window.open("broadcast");
@@ -299,10 +303,17 @@
 <body>
     <center>
         <div id="headDiv">
-        欢迎你，<font class="userName">${sessionScope.user.name}</font>&nbsp;&nbsp;
+            <jsp:include page="head.jsp"></jsp:include>
+            <jsp:include page="navigation.jsp"></jsp:include>
+        <%--欢迎你，<font class="userName">${sessionScope.user.name}</font>&nbsp;&nbsp;
         [<a href="logout">注销</a>]
         [<a href="register">注册</a>]
-        <div id="navigation">[<a href="broadcast" target="_blank">公告</a>]</div>
+        <div id="navigation">
+            [<a href="broadcast" target="_blank">公告</a>]
+            [<a href="#" target="_blank">用户管理</a>]
+            [<a href="#" target="_blank">角色管理</a>]
+            [<a href="#" target="_blank">权限管理</a>]
+        </div>--%>
             <div id="userPanel">
                 <div id="userPanelText">在线用户</div>
                 <div id="userList">

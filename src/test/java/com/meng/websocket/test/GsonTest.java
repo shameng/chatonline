@@ -2,8 +2,10 @@ package com.meng.websocket.test;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.meng.chatonline.model.ActiveUser;
 import com.meng.chatonline.model.Message;
 import com.meng.chatonline.model.User;
+import com.meng.chatonline.security.MyRealm;
 import org.junit.Test;
 
 import java.util.Date;
@@ -43,6 +45,17 @@ public class GsonTest
 //        String json2 = "{'id':1,'toUser.id:1,'fromUser.id:2,'text':'lalalal','date':'Nov 7, 2016 3:10:18 PM'}";
 //        Message message2 = new Gson().fromJson(json2, Message.class);
 //        System.out.println(message2);
+
+        User user = new User(1, "aa", "bb");
+        System.out.println(user.toString());
+        User user1 = new Gson().fromJson(user.toString(), User.class);
+        System.out.println(user1);
+    }
+
+    @Test
+    public void testClassName()
+    {
+        System.out.println(new MyRealm().getClass().getSimpleName());
     }
 
 }

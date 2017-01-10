@@ -21,4 +21,11 @@ public class ValidationUtils
         return false;
     }
 
+    public static boolean validateArray(Object[] arr)
+    {
+        if (arr != null && arr.length > 0)
+            return true;
+        return false;
+    }
+
 }

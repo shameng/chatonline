@@ -14,16 +14,36 @@
     <link type="text/css" rel="stylesheet" href="${contextPath}/styles/common.css">
     <title>注册用户</title>
     <script type="text/javascript" language="JavaScript" src="${contextPath}/js/jquery-1.12.1.js"></script>
-    <script type="text/javascript">
+    <script type="text/javascript" language="JavaScript">
         $(function () {
             $("form").submit(function () {
+                var account = $.trim($("#account").val());
                 var name = $.trim($("#name").val());
                 var password = $.trim($("#password").val());
                 var confirmPassword = $.trim($("#confirmPassword").val());
+                $("#account").next("font").remove();
                 $("#name").next("font").remove();
                 $("#password").next("font").remove();
                 $("#confirmPassword").next("font").remove();
                 var flag = true;
+                if (account == "")
+                {
+                    $("#account").after("<font class='error'>&nbsp;账号不能为空</font>");
+                    flag = false;
+                }
+                else
+                {
+                    var url = "register/checkUserAccount";
+                    var args = {"account":account, "time":new Date()};
+                    $.get(url, args, function (data) {
+                        //若已被注册
+                        if (data == 1)
+                        {
+                            $("#account").after("<font class='error'>&nbsp;该账号已经被注册</font>");
+                            flag = false;
+                        }
+                    })
+                }
                 if (name == "")
                 {
                     $("#name").after("<font class='error'>&nbsp;用户名不能为空</font>");
@@ -38,6 +58,7 @@
                         if (data == 1)
                         {
                             $("#name").after("<font class='error'>&nbsp;该用户名已经被注册</font>");
+                            flag = false;
                         }
                     })
                 }
@@ -54,7 +75,7 @@
                 if (flag)
                 {
                     var url = "register";
-                    var args = {"name":name, "password":password, "time":new Date()};
+                    var args = {"account":account, "name":name, "password":password, "time":new Date()};
                     $.post(url, args, function (data) {
                         if (data == 1)
                         {
@@ -76,11 +97,15 @@
 <body>
     <center>
         <div id="headDiv">
-            <div id="registerPanel">
-                <div id="registerHeadText">注册新用户</div>
+            <div class="headPanel">
+                <div class="headText">注册新用户</div>
                 <div>
                     <form:form action="register" method="post" modelAttribute="user">
                         <table>
+                            <tr>
+                                <td class="tdText">账号：</td>
+                                <td><form:input path="account"/></td>
+                            </tr>
                             <tr>
                                 <td class="tdText">用户名：</td>
                                 <td><form:input path="name"/></td>

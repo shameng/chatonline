@@ -27,3 +27,19 @@ body{
     width:1000px;
     text-align:left;
 }
+
+.error{
+    font-size:15px;
+    color: red;
+}
+.headPanel{
+    width:999px;
+    height:599px;
+    background-color:aliceblue;
+    border:1px solid;
+}
+
+.headText{
+    background-color:burlywood;
+    height:20px;
+}

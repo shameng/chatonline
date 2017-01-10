@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ include file="common.jsp"%>
 <html>
 <head>
@@ -18,21 +17,23 @@
 <center>
     <div id="loginDiv">
         <img src="${contextPath}/images/lufei3.jpg">
-        <form:form action="login" method="post" modelAttribute="user">
+        <form action="login" method="post" >
             <div class="loginText">在线聊天系统</div>
             <br>
             账号:
-            <form:input path="account"/>
+            <input id="username" name="account" type="text">
             <br>
             &nbsp;密码:
-            <form:password path="password"/>
+            <input id="password" name="password" type="password">
+            <br>
+            <font class="error">${errorMsg}</font>
             <br>
             <input type="submit" value="登陆">
             <div>
                 <a href="#">找回密码</a>&nbsp;
                 <a href="${contextPath}/register">注册账号</a>
             </div>
-        </form:form>
+        </form>
     </div>
 </center>
 </body>

@@ -8,10 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>拒绝访问</title>
 </head>
 <body>
     你没有权限！
     <a href="javascript:window.history.go(-1)">返回</a>
+    <br>
+    <a href="logout">重新登录</a>
 </body>
 </html>

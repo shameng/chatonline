@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ include file="/WEB-INF/views/common.jsp"%>
 <html>
 <head>
@@ -63,10 +64,12 @@
 <body>
     <center>
         <div id="headDiv">
-            欢迎你，<font class="userName">${sessionScope.user.name}</font>
-            <div id="navigation">[<a href="chatRoom">聊天室</a>]</div>
-            <div id="broadcastPanel">
-                <div id="broadcastHeadText">公告
+            <jsp:include page="head.jsp"></jsp:include>
+            <jsp:include page="navigation.jsp"></jsp:include>
+            <%--欢迎你，<font class="userName">${sessionScope.user.name}</font>
+            <div id="navigation">[<a href="chatRoom">聊天室</a>]</div>--%>
+            <div class="headPanel">
+                <div class="headText">公告
                     <span style="float: right;">
                         <a href="${contextPath}/broadcast/newBroadcast">新建公告</a>
                     </span>
@@ -82,7 +85,11 @@
                                     <div class="broadcastFrom">
                                         ${broadcast.utterer.name}&nbsp;发表于&nbsp;
                                         <fmt:formatDate value="${broadcast.date}" pattern="yyyy-MM-dd HH:mm"></fmt:formatDate>
-                                        <a href="javascript:deleteBroadcast('${broadcast.id}')">删除</a>
+                                        <c:if test="${broadcast.utterer.id == sessionScope.user.id}">
+                                            <shiro:hasPermission name="broadcast:delete">
+                                                <a href="javascript:deleteBroadcast('${broadcast.id}')">删除</a>
+                                            </shiro:hasPermission>
+                                        </c:if>
                                     </div>
                                 </div>
                             </li>

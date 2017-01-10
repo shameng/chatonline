@@ -8,6 +8,7 @@ import com.meng.chatonline.model.Message;
 import com.meng.chatonline.model.User;
 import com.meng.chatonline.service.MessageService;
 import com.meng.chatonline.service.UserService;
+import com.meng.chatonline.utils.SecurityUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.*;
 
@@ -17,6 +18,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import static com.meng.chatonline.Param.LOGIN_BROADCAST_TYPE;
+import static com.meng.chatonline.Param.LOGOUT_BROADCAST_TYPE;
+
 
 /**
  * @Author xindemeng
@@ -31,7 +36,7 @@ public class MyWebSocketHandler implements WebSocketHandler
     @Resource
     private UserService userService;
 
-    //键是用户的 id，值是用户对应的 WebSocketSession
+    //键是已登录的用户，值是用户对应的 WebSocketSession
     private static final Map<ActiveUser, WebSocketSession> userSocketSessionMap;
 
     static
@@ -47,8 +52,8 @@ public class MyWebSocketHandler implements WebSocketHandler
         {
             //给在线用户广播该用户登陆消息
             Broadcast broadcast = new Broadcast();
-            broadcast.setType(1);
-            broadcast.setUtterer(ActiveUser);
+            broadcast.setType(LOGIN_BROADCAST_TYPE);
+            broadcast.setUtterer(user);
             this.broadcast(broadcast);
 
             if (userSocketSessionMap.get(user) == null)
@@ -73,10 +78,8 @@ public class MyWebSocketHandler implements WebSocketHandler
 
         User fromUser = userService.getEntity(msg.getFromUser().getId());
         User toUser = userService.getEntity(msg.getToUser().getId());
-        fromUser.setPassword(null);
-        toUser.setPassword(null);
-        msg.setFromUser(fromUser);
-        msg.setToUser(toUser);
+        msg.setFromUser(SecurityUtils.userToActiveUser(fromUser));
+        msg.setToUser(SecurityUtils.userToActiveUser(toUser));
 
         TextMessage textMessage = new TextMessage(new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd HH:mm:ss").create().toJson(msg));
@@ -101,12 +104,17 @@ public class MyWebSocketHandler implements WebSocketHandler
         if (webSocketSession.isOpen())
             webSocketSession.close();
         //移除socket会话
-        for(Map.Entry<User, WebSocketSession> entry : userSocketSessionMap.entrySet())
+        for(Map.Entry<ActiveUser, WebSocketSession> entry : userSocketSessionMap.entrySet())
         {
             if (entry.getValue().getId().equals(webSocketSession.getId()))
             {
-                userSocketSessionMap.remove(entry.getKey());
+                User user = new User(entry.getKey().getId());
+                userSocketSessionMap.remove(user);
                 System.out.println("socket会话发生错误并且已经移除了用户" + entry.getKey());
+
+                //广播用户注销消息
+                broadcastLogoutMsg(entry.getKey());
+
                 break;
             }
         }
@@ -118,18 +126,16 @@ public class MyWebSocketHandler implements WebSocketHandler
     public void afterConnectionClosed(WebSocketSession webSocketSession, CloseStatus closeStatus) throws Exception
     {
         System.out.println("WebSocket:" + webSocketSession.getId() + "已经关闭");
-        for (Map.Entry<User, WebSocketSession> entry : userSocketSessionMap.entrySet())
+        for (Map.Entry<ActiveUser, WebSocketSession> entry : userSocketSessionMap.entrySet())
         {
             if (entry.getValue().getId().equals(webSocketSession.getId()))
             {
-                userSocketSessionMap.remove(entry.getKey());
+//                User user = new User(entry.getKey().getId());
+//                userSocketSessionMap.remove(user);
                 System.out.println("socket会话关闭并且已经移除了用户ID" + entry.getKey());
 
                 //广播用户注销消息
-                Broadcast broadcast = new Broadcast();
-                broadcast.setType(2);
-                broadcast.setUtterer(entry.getKey());
-                this.broadcast(broadcast);
+                broadcastLogoutMsg(entry.getKey());
 
                 break;
             }
@@ -147,7 +153,7 @@ public class MyWebSocketHandler implements WebSocketHandler
         System.out.println("广播新公告");
         final TextMessage textMessage = new TextMessage(new GsonBuilder().
                 setDateFormat("yyyy-MM-dd HH:mm:ss").create().toJson(broadcast));
-        for (final Map.Entry<User, WebSocketSession> entry : userSocketSessionMap.entrySet())
+        for (final Map.Entry<ActiveUser, WebSocketSession> entry : userSocketSessionMap.entrySet())
         {
             //多线程发送
             if (entry.getValue().isOpen())
@@ -176,6 +182,20 @@ public class MyWebSocketHandler implements WebSocketHandler
     public static Set<ActiveUser> getOnlineUsers()
     {
         return userSocketSessionMap.keySet();
+    }
+
+    //广播用户注销消息
+    public void broadcastLogoutMsg(User user)
+    {
+        if (user != null)
+        {
+            userSocketSessionMap.remove(user);
+
+            Broadcast broadcast = new Broadcast();
+            broadcast.setType(LOGOUT_BROADCAST_TYPE);
+            broadcast.setUtterer(user);
+            this.broadcast(broadcast);
+        }
     }
 
 }

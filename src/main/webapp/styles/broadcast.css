@@ -1,14 +1,3 @@
-#broadcastPanel{
-    width:999px;
-    height:599px;
-    background-color:aliceblue;
-    border:1px solid;
-}
-
-#broadcastHeadText{
-    background-color:burlywood;
-    height:20px;
-}
 #broadcastList
 {
     width:999px;
@@ -58,9 +47,4 @@ ul li {
     font-size:15px;
     text-align:right;
     margin-top: 10px;
-}
-
-.error{
-    font-size:15px;
-    color: red;
 }

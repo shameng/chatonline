@@ -1,8 +1,12 @@
 package com.meng.chatonline.utils;
 
+import com.meng.chatonline.Param;
+import com.meng.chatonline.model.ActiveUser;
+import com.meng.chatonline.model.User;
+import com.meng.chatonline.model.security.Authority;
 import org.apache.shiro.crypto.hash.Md5Hash;
 
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @Author xindemeng
@@ -29,5 +33,41 @@ public class SecurityUtils
     {
         String salt = UUID.randomUUID().toString();
         return salt;
+    }
+
+    //把User转换为ActiveUser
+    public static ActiveUser userToActiveUser(User user)
+    {
+        return new ActiveUser(user.getId(), user.getAccount(), user.getName());
+    }
+
+    //把权限按菜单分开，key是菜单，value是菜单包含的权限
+    public static Map<Authority, List<Authority>> getAuthoritiesSortedByMenu(List<Authority> authorities)
+    {
+        //LinkedHashMap它内部有一个链表，保持插入的顺序。迭代的时候，也是按照插入顺序迭代，而且迭代比HashMap快。
+        HashMap<Authority, List<Authority>> map = new LinkedHashMap<Authority, List<Authority>>();
+        for (Authority auth : authorities)
+        {
+            if (auth.getType() == Param.MENU_TYPE)
+                map.put(auth, new ArrayList<Authority>());
+        }
+        for (Authority auth : authorities)
+        {
+            if (auth.getType() == Param.AUTH_TYPE)
+                if (map.get(auth.getMenu()) != null)
+                    map.get(auth.getMenu()).add(auth);
+        }
+        return map;
+    }
+
+    //把password和salt属性置为null
+    public static List<User> passwordAndSaltBeNull(List<User> users)
+    {
+        for (User user : users)
+        {
+            user.setPassword(null);
+            user.setSalt(null);
+        }
+        return users;
     }
 }

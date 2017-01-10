@@ -1,8 +1,12 @@
 package com.meng.chatonline.model;
 
+import com.meng.chatonline.model.security.Role;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @Author xindemeng
@@ -16,22 +20,35 @@ public class User implements Serializable
     private String name;
     private String password;
     private String salt;
+    //角色
+    private Set<Role> roles = new HashSet<Role>();
 
-    public User()
-    {
-    }
+    public User() {}
 
-    public User(Integer id, String name, String password)
+    public User(Integer id)
     {
         this.id = id;
+    }
+
+    public User(Integer id, String account, String name)
+    {
+        this.id = id;
+        this.account = account;
         this.name = name;
-        this.password = password;
     }
 
     public User(String name, String password)
     {
         this.name = name;
         this.password = password;
+    }
+
+    public User(Integer id, String account, String name, Set<Role> roles)
+    {
+        this.id = id;
+        this.account = account;
+        this.name = name;
+        this.roles = roles;
     }
 
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -90,12 +107,27 @@ public class User implements Serializable
         this.password = password;
     }
 
+    @JoinTable(name="user_role",
+            joinColumns = {@JoinColumn(name="user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name="role_id", referencedColumnName = "id")})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.REMOVE})
+    public Set<Role> getRoles()
+    {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles)
+    {
+        this.roles = roles;
+    }
+
     @Override
     public String toString()
     {
-        return "User{" +
-                "account='" + account + '\'' +
-                ", name='" + name + '\'' +
+        return "{" +
+                "'id':" + id +
+                ", 'account':'" + account + '\'' +
+                ", 'name':'" + name + '\'' +
                 '}';
     }
 
@@ -118,6 +150,6 @@ public class User implements Serializable
     @Override
     public int hashCode()
     {
-        return this.id * 37 + name.hashCode();
+        return this.id * 37;
     }
 }

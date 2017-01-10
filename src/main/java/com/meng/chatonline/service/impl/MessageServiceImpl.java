@@ -1,6 +1,7 @@
 package com.meng.chatonline.service.impl;
 
 import com.meng.chatonline.dao.BaseDao;
+import com.meng.chatonline.model.ActiveUser;
 import com.meng.chatonline.model.Message;
 import com.meng.chatonline.service.MessageService;
 import org.springframework.stereotype.Service;
@@ -27,15 +28,14 @@ public class MessageServiceImpl extends BaseServiceImpl<Message> implements Mess
     @Transactional
     public List<Message> getHistoryChatRecord(Integer toUserId, Integer myId)
     {
-        String jpql = "from Message m where (m.toUser.id = ? and m.fromUser.id = ?)" +
+        String jpql = "select m from Message m join m.toUser join fetch m.fromUser where (m.toUser.id = ? and m.fromUser.id = ?)" +
                 " or (m.toUser.id = ? and m.fromUser.id = ?)" +
                 " order by m.date desc";
         List<Message> chatRecord = this.findEntityByJPQL(jpql, toUserId, myId, myId, toUserId);
-        //解决懒加载问题
         for (Message m : chatRecord)
         {
-            m.getFromUser().getName();
-            m.getToUser().getName();
+            m.setToUser(new ActiveUser(m.getToUser().getId(),m.getToUser().getAccount(),m.getToUser().getName()));
+            m.setFromUser(new ActiveUser(m.getFromUser().getId(),m.getFromUser().getAccount(),m.getFromUser().getName()));
         }
         return chatRecord;
     }

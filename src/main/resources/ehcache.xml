@@ -31,8 +31,8 @@
     <defaultCache
         maxElementsInMemory="10000"
         eternal="false"
-        timeToIdleSeconds="120"
-        timeToLiveSeconds="120"
+        timeToIdleSeconds="900"
+        timeToLiveSeconds="1800"
         overflowToDisk="true"
         />
 
@@ -67,8 +67,8 @@
     <cache name="sampleCache1"
         maxElementsInMemory="10000"
         eternal="false"
-        timeToIdleSeconds="300"
-        timeToLiveSeconds="600"
+        timeToIdleSeconds="900"
+        timeToLiveSeconds="1800"
         overflowToDisk="true"
         />
 

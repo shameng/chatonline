@@ -18,4 +18,18 @@ public interface UserService extends BaseService<User>
     User checkUserName(String name);
 
     User getUserByAccount(String account);
+
+    //保存用户，使用md5加密密码
+    void saveUser(User user);
+
+    //获得所有用户及其Role
+    List<User> findUsersWithRole();
+
+    //更新用户角色
+    void updateUserRole(Integer userId, String[] ownRoleIds);
+
+    //清除该用户的权限
+    void clearAuthorities(Integer userId);
+
+    void deleteUser(Integer userId);
 }

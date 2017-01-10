@@ -26,9 +26,12 @@
 <body>
 <center>
     <div id="headDiv">
-        欢迎你，<font class="userName">${sessionScope.user.name}</font>
-        <div id="broadcastPanel">
-            <div id="broadcastHeadText">编辑公告</div>
+        <jsp:include page="head.jsp"></jsp:include>
+        <div id="navigation">
+            <a href="${contextPath}/broadcast">公告</a>&nbsp;>>&nbsp;编辑公告&nbsp;>>&nbsp;提交
+        </div>
+        <div class="headPanel">
+            <div class="headText">编辑公告</div>
             <div>
                 <form:form action="newBroadcast" method="post" modelAttribute="broadcast">
                     <table>

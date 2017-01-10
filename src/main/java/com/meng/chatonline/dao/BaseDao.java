@@ -22,5 +22,5 @@ public interface BaseDao<T> {
 	//单值检索，要确保查询结果有且只有一条记录
 	public Object uniqueResult(String jpql, Object... objects);
 	//执行sql语句，可以通过制定clazz是否为空指定是否封装为实体
-	public List<T> executeSQLQuery(Class clazz, String sql, Object... objects);
+	public <R> List<R> executeSQLQuery(Class<R> clazz, String sql, Object... objects);
 }

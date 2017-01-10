@@ -26,6 +26,8 @@ public class BroadcastServiceImpl extends BaseServiceImpl<Broadcast> implements 
         super.setDao(baseDao);
     }
 
+    //执行删除更新保存时清除缓存
+    @TriggersRemove(cacheName="sampleCache1",removeAll=true)
     @Transactional
     public void saveBroadcast(Broadcast broadcast)
     {

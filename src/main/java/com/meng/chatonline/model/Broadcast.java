@@ -1,5 +1,6 @@
 package com.meng.chatonline.model;
 
+import com.meng.chatonline.Param;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -15,6 +16,7 @@ import java.util.Date;
 public class Broadcast implements Serializable
 {
     private Integer id;
+    //发表人
     private User utterer;
     @Length(min = 1, max = 50)
     private String title;
@@ -23,7 +25,7 @@ public class Broadcast implements Serializable
     private Date date;
 
     //广播类型，0-公告，1-登陆，2-注销。不持久化
-    private Integer type = 0;
+    private Integer type = Param.NOTICE_BROADCAST_TYPE;
 
     @Transient
     public Integer getType()

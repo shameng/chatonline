@@ -24,7 +24,6 @@ public class RegisterController
     @RequestMapping(value = {"","/"}, method = RequestMethod.GET)
     public String toRegister(Map<String, Object> map)
     {
-        System.out.println(2222222);
         map.put("user", new User());
         return "register";
     }
@@ -38,14 +37,23 @@ public class RegisterController
         return user==null? "0" : "1";
     }
 
+    //检查账号是否已经被注册
+    @ResponseBody
+    @RequestMapping("/checkUserAccount")
+    public String checkUserAccount(@RequestParam(value = "account", required = true) String account)
+    {
+        User user = userService.getUserByAccount(account);
+        return user==null? "0" : "1";
+    }
+
     @ResponseBody
     @RequestMapping(value = {"","/"}, method = RequestMethod.POST)
     public String register(User user)
     {
-        System.out.println(user);
+        System.out.println("--------------" + user + "-----------------------");
         try
         {
-            this.userService.saveEntity(user);
+            this.userService.saveUser(user);
             return "1";
         } catch (Exception e)
         {

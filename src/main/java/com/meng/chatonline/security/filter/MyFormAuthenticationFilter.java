@@ -1,27 +1,17 @@
-package com.meng.chatonline.security;
+package com.meng.chatonline.security.filter;
 
-import com.meng.chatonline.exception.MyExceptionResolver;
 import com.meng.chatonline.model.ActiveUser;
-import org.apache.shiro.SecurityUtils;
+import com.meng.chatonline.security.ShiroSecurityHelper;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
-import org.apache.shiro.subject.support.DefaultSubjectContext;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
-import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
-import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.apache.shiro.web.util.SavedRequest;
 import org.apache.shiro.web.util.WebUtils;
 
-import javax.annotation.Resource;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * @Author xindemeng
@@ -40,7 +30,7 @@ public class MyFormAuthenticationFilter extends FormAuthenticationFilter
         String successUrl = this.getSuccessUrl();
         boolean contextRelative = true;
         SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(request);
-        //如果没有设置successUrl属性
+        //如果没有设置successUrl属性，默认值值为"/"
         if (successUrl.equals(DEFAULT_SUCCESS_URL))
         {
             if (savedRequest != null && savedRequest.getMethod().equalsIgnoreCase(AccessControlFilter.GET_METHOD))
@@ -60,10 +50,15 @@ public class MyFormAuthenticationFilter extends FormAuthenticationFilter
         WebUtils.issueRedirect(request, response, successUrl, null, contextRelative, true);
     }
 
-    //重写该方法来控制一个用户只能在一处登陆
     @Override
     protected boolean onLoginSuccess(AuthenticationToken token, Subject subject, ServletRequest request, ServletResponse response) throws Exception
     {
+        //把User放到session里
+        Session session = subject.getSession(false);
+        if (session != null)
+            session.setAttribute("user", subject.getPrincipal());
+
+        //控制一个用户只能在一处登陆
         if (isOnlyOnePermitLogin())
         {
             ActiveUser user = (ActiveUser) subject.getPrincipal();

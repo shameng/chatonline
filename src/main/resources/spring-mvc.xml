@@ -17,13 +17,16 @@
                  expression="org.springframework.web.bind.annotation.ControllerAdvice"></context:include-filter>
     </context:component-scan>
 
-    <!--开启AOP，对类代理-->
-    <!--<aop:config proxy-target-class="true"></aop:config>-->
+    <!--开启Shiro Spring AOP权限注解的支持，对类代理-->
+    <aop:config proxy-target-class="true"></aop:config>
     <!--开启shiro注解支持-->
+    <!--LifecycleBeanPostProcessor用于在实现了Initializable接口的Shiro bean初始化时调用Initializable接口
+    回调，在实现了Destroyable接口的Shiro bean销毁时调用 Destroyable接口回调。如UserRealm就实现了
+    Initializable，而DefaultSecurityManager实现了Destroyable。-->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
-    <bean id="controllerAdvisorAutoProxyCreator" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
-          depends-on="lifecycleBeanPostProcessor"/>
-    <bean id="controllerAuthorizationAttributeSourceAdvisor"  class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+    <!--<bean id="controllerAdvisorAutoProxyCreator" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"-->
+          <!--depends-on="lifecycleBeanPostProcessor"/>-->
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
         <property name="securityManager" ref="securityManager"/>
     </bean>
 

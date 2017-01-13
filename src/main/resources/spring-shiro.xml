@@ -6,9 +6,9 @@
     <!--与web.xml文件里的shiroFilter过滤器里的targetBeanName相对应-->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"></property>
-        <!--登陆页面-->
-        <!--<property name="loginUrl" value="/login"></property>-->
-        <!--没有权限跳转到的页面-->
+        <!--登陆页面，必须设置，否则默认是/login.jsp-->
+        <property name="loginUrl" value="/login"></property>
+        <!--没有权限跳转到的页面，本系统使用了MyExceptionResolver类来处理无权限异常-->
         <!--<property name="unauthorizedUrl" value="/refuse"></property>-->
         <property name="filters">
             <map>
@@ -25,9 +25,11 @@
                 /styles/** = anon
                 <!--注册用户可匿名访问-->
                 /register/** = anon
-                <!-- 请求 logout.action地址，shiro去清除session-->
+                <!-- 请求 /logout 地址，shiro去清除session-->
                 /logout = logout
-                <!-- = authc 所有url都必须认证通过才可以访问-->
+                <!--测试 user-->
+                /user.jsp = user
+                <!--/** = authc 所有url都必须认证通过才可以访问-->
                 /** = authc
             </value>
         </property>
@@ -38,6 +40,7 @@
         <property name="realm" ref="realm"></property>
         <property name="cacheManager" ref="shiroCacheManager"></property>
         <property name="sessionManager" ref="shiroSessionManager"></property>
+        <property name="rememberMeManager" ref="cookieRememberMeManager"></property>
     </bean>
 
     <!--自定义Realm-->
@@ -52,13 +55,14 @@
     </bean>
 
     <!-- 自定义form认证过滤器 -->
-    <!-- 基于Form表单的身份验证过滤器，不配置将也会注册此过虑器，表单中的用户账号、密码及loginurl将采用默认值，
+    <!-- 基于Form表单的身份验证过滤器，不配置将也会注册此过滤器，表单中的用户账号、密码及loginurl将采用默认值，
         建议配置 -->
-    <bean id="authenticationFilter" class="com.meng.chatonline.security.MyFormAuthenticationFilter">
+    <bean id="authenticationFilter" class="com.meng.chatonline.security.filter.MyFormAuthenticationFilter">
         <property name="usernameParam" value="account"></property>
         <property name="passwordParam" value="password"></property>
+        <property name="rememberMeParam" value="rememberMe"></property>
         <!--认证成功后跳转的页面，默认认证成功自动跳转到上一个请求路径-->
-        <property name="successUrl" value="/chatRoom"></property>
+        <!--<property name="successUrl" value="/chatRoom"></property>-->
         <property name="loginUrl" value="/login"></property>
 
         <!--设置是否一个用户只允许在一处登陆-->
@@ -66,7 +70,7 @@
     </bean>
 
     <!--自定义注销退出过滤器，用于用户注销时向其他用户广播注销消息-->
-    <bean id="logoutFilter" class="com.meng.chatonline.security.MyLogoutFilter"></bean>
+    <bean id="logoutFilter" class="com.meng.chatonline.security.filter.MyLogoutFilter"></bean>
 
     <!--缓存管理器-->
     <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
@@ -74,15 +78,17 @@
         <!--<property name="cacheManagerConfigFile" value="classpath:ehcache.xml"></property>-->
     </bean>
 
-    <!-- 会话ID生成器 -->
+    <!-- 用于生成会话ID，默认就是JavaUuidSessionIdGenerator，使用java.util.UUID生成。 -->
     <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
     <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
-         <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
+        <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
+        <!--设置Session缓存名字，默认就是shiro-activeSessionCache-->
+        <property name="activeSessionsCacheName" value="shiro-activeSessionCache"></property>
     </bean>
-    <!-- <bean id="sessionIdGenerator" class="com.concom.security.infrastructure.shiro.ShiroSessionIdGenerator"/> -->
 
     <bean id="shiroSessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
         <property name="sessionDAO" ref="sessionDAO"/>
+        <property name="sessionIdCookie" ref="sessionIdCookie"></property>
         <!-- 删除失效的session -->
         <property name="deleteInvalidSessions" value="true"/>
         <!-- 相隔多久检查一次session的有效性 -->
@@ -97,5 +103,40 @@
             </list>
         </property>
     </bean>
-    <bean id="sessionListener1" class="com.meng.chatonline.security.MySessionListener"></bean>
+    <!--自定义session监听器-->
+    <bean id="sessionListener1" class="com.meng.chatonline.security.listener.MySessionListener"></bean>
+
+    <!-- 相当于调用SecurityUtils.setSecurityManager(securityManager)
+        不知道有什么用？-->
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
+        <property name="arguments" ref="securityManager"/>
+    </bean>
+
+    <!--会话cookie-->
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <!--必须设置，否则会报异常root cause
+        java.lang.IllegalStateException: Cookie name cannot be null/empty.-->
+        <constructor-arg value="sessionId"/>
+        <property name="httpOnly" value="true"></property>
+        <!--maxAge=-1表示浏览器关闭时失效此Cookie-->
+        <property name="maxAge" value="-1"></property>
+    </bean>
+
+    <!--rememberMe cookie-->
+    <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="rememberMe"/>
+        <property name="httpOnly" value="true"></property>
+        <!--有效期为30天，单位为秒-->
+        <property name="maxAge" value="2592000"></property>
+    </bean>
+    <!--rememberMe管理器-->
+    <bean id="cookieRememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+        <property name="cookie" ref="rememberMeCookie"></property>
+        <!--
+        加密rememberMe Cookie的密钥；默认AES算法
+        不加上这个会报异常org.apache.shiro.crypto.CryptoException: Unable to execute 'doFinal' with cipher instance [javax.crypto.Cipher@4d9a1041].
+        -->
+        <property name="cipherKey" value="#{T(org.apache.shiro.codec.Base64).decode('4AvVhmFLUs0KTA3Kprsdag==')}"/>
+    </bean>
 </beans>

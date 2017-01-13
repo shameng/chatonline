@@ -21,13 +21,18 @@
             <div class="loginText">在线聊天系统</div>
             <br>
             账号:
-            <input id="username" name="account" type="text">
+            <input id="username" name="account" type="text" class="text">
             <br>
-            &nbsp;密码:
-            <input id="password" name="password" type="password">
+            密码:
+            <input id="password" name="password" type="password" class="text">
             <br>
-            <font class="error">${errorMsg}</font>
+            一个月内记住我:
+            <input id="rememberMe" name="rememberMe" type="checkbox">
             <br>
+            <c:if test="${not empty errorMsg}">
+                <font class="error">${errorMsg}</font>
+                <br>
+            </c:if>
             <input type="submit" value="登陆">
             <div>
                 <a href="#">找回密码</a>&nbsp;

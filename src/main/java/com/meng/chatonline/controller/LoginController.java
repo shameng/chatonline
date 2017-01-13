@@ -22,9 +22,8 @@ import java.util.Map;
 public class LoginController
 {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Map<String, Object> map)
+    public String login()
     {
-        map.put("user", new User());
         return "login";
     }
 

@@ -66,13 +66,14 @@
         <div id="headDiv">
             <jsp:include page="head.jsp"></jsp:include>
             <jsp:include page="navigation.jsp"></jsp:include>
-            <%--欢迎你，<font class="userName">${sessionScope.user.name}</font>
-            <div id="navigation">[<a href="chatRoom">聊天室</a>]</div>--%>
             <div class="headPanel">
-                <div class="headText">公告
-                    <span style="float: right;">
-                        <a href="${contextPath}/broadcast/newBroadcast">新建公告</a>
-                    </span>
+                <div class="headText">
+                    公告
+                    <shiro:hasPermission name="broadcast:new">
+                        <span style="float: right;">
+                            <a href="${contextPath}/broadcast/newBroadcast">新建公告</a>
+                        </span>
+                    </shiro:hasPermission>
                 </div>
                 <div id="broadcastList">
                     <ul>

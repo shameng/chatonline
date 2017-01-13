@@ -26,10 +26,13 @@
     left: 30px;
     font-size: 15px;
 }
-#loginDiv form input{
+#loginDiv form input
+{
+    margin-bottom: 20px;
+}
+.text{
     width:200px;
     height:30px;
-    margin-bottom: 20px;
     /*设置元素周围的轮廓*/
     outline:none;
     /*添加圆角边框*/

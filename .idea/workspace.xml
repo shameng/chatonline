@@ -2,80 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c397700-a257-47a6-ab18-7e2ea7f50994" name="Default" comment="权限控制基本完成，有待完善">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/Param.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/AuthorityController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/RoleController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/UserController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/dao/impl/AuthorityDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/dao/impl/RoleDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/exception/LoginException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/exception/MyExceptionResolver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/security/Role.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyFormAuthenticationFilter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyLogoutFilter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MySessionListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/ShiroSecurityHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/AuthorityService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/RoleService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/AuthorityServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/RoleServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/CollectionUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/StringUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/head.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/navigation.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/authorityList.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/editAuthority.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/editRole.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/editUserRole.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/roleList.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/userList.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/styles/security.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/MessageTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/SecurityController.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/0d709388-d0e5-483f-9c0b-19e1873b7d0a.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/0d709388-d0e5-483f-9c0b-19e1873b7d0a.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/DataBaseTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/JPATest.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/BroadcastController.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/BroadcastController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/ChatController.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/ChatController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/RegisterController.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/RegisterController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/dao/BaseDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/dao/BaseDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/dao/impl/BaseDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/dao/impl/BaseDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/ActiveUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/ActiveUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/Broadcast.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/Broadcast.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/security/Authority.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/security/Authority.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/exception/MyExceptionResolver.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/exception/MyExceptionResolver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyRealm.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyRealm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/BaseService.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/BaseService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/BaseServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/BaseServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/BroadcastServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/BroadcastServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/MessageServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/MessageServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/SecurityUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/SecurityUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/ValidationUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/ValidationUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/websocket/HandShake.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/websocket/HandShake.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/websocket/MyWebSocketHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/websocket/MyWebSocketHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/ehcache.xml" afterPath="$PROJECT_DIR$/src/main/resources/ehcache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/i18n.properties" afterPath="$PROJECT_DIR$/src/main/resources/i18n.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring-shiro.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring-shiro.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/broadcast.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/broadcast.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/chatRoom.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/chatRoom.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editBroadcast.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/editBroadcast.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/head.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/head.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/refuse.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/refuse.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/styles/broadcast.css" afterPath="$PROJECT_DIR$/src/main/webapp/styles/broadcast.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/styles/common.css" afterPath="$PROJECT_DIR$/src/main/webapp/styles/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/styles/register.css" afterPath="$PROJECT_DIR$/src/main/webapp/styles/register.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/DataBaseTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/DataBaseTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/GsonTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/GsonTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/JPATest.java" afterPath="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/JPATest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/navigation.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/navigation.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/styles/login.css" afterPath="$PROJECT_DIR$/src/main/webapp/styles/login.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/SecurityTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/SecurityTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyFormAuthenticationFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/filter/MyFormAuthenticationFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyLogoutFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/filter/MyLogoutFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MySessionListener.java" afterPath="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/listener/MySessionListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error/error.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/refuse.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error/refuse.jsp" />
     </list>
     <ignored path="chatonline.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -111,78 +60,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="chatRoom.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/chatRoom.jsp">
+      <file leaf-file-name="spring-shiro.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/spring-shiro.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="151" column="58" selection-start-line="151" selection-start-column="58" selection-end-line="151" selection-end-column="58" />
-              <folding>
-                <marker date="1484019461649" expanded="true" signature="4644:4650" ph="&amp;nbsp;" />
-                <marker date="1484019461649" expanded="true" signature="7977:7983" ph="&amp;nbsp;" />
-                <marker date="1484019461649" expanded="true" signature="9235:9246" ph="..." />
-                <marker date="1484019461649" expanded="true" signature="11340:11346" ph="&amp;nbsp;" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MySessionListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MySessionListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyWebSocketHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/websocket/MyWebSocketHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+            <state relative-caret-position="486">
+              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Param.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/Param.java">
+      <file leaf-file-name="BroadcastServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/BroadcastServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="81">
-              <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ValidationUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/ValidationUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/BaseService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StringUtils.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/StringUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+              <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -193,12 +85,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="spring-beans.schema" />
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="HTML File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -224,57 +116,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/userList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/SecurityController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/security/Authority.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/RoleService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/AuthorityService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/editUserRole.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/dao/impl/BaseDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/dao/BaseDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/BaseServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/BaseService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/JPATest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/CollectionUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/SecurityUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/authorityList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/userList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/styles/security.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/editAuthority.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/ChatController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/AuthorityController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/refuse.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/security/Role.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/roleList.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/editRole.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/RoleController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/SecurityTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/ActiveUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/RoleServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/AuthorityServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyRealm.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/exception/LoginException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/exception/MyExceptionResolver.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/navigation.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyLogoutFilter.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/MessageTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyFormAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/MessageServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/ShiroSecurityHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/websocket/MyWebSocketHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/User.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/GsonTest.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring-shiro.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/ehcache.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MySessionListener.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/chatRoom.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/Param.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/StringUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/44.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/navigation.jsp" />
+        <option value="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/SecurityTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/DataBaseTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/meng/websocket/test/JPATest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyFormAuthenticationFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/filter/MyLogoutFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/listener/MySessionListener.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/invalidSession.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/security/invalidSession.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error/404.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error/404.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/SecurityController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/ehcache.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/head.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyRealm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/filter/MyFormAuthenticationFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/AuthorityController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/authc.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/broadcast.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/chatRoom.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/ChatController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring-shiro.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/styles/login.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/user.jsp" />
       </list>
     </option>
   </component>
@@ -344,7 +236,13 @@
             <id>CodeSpring CoreSpring</id>
           </State>
           <State>
+            <id>Control flow issuesJava</id>
+          </State>
+          <State>
             <id>DOM issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Error handlingJava</id>
           </State>
           <State>
             <id>FlexUnit inspections</id>
@@ -363,6 +261,9 @@
           </State>
           <State>
             <id>Groovy</id>
+          </State>
+          <State>
+            <id>HTML</id>
           </State>
           <State>
             <id>Hibernate Issues</id>
@@ -452,7 +353,13 @@
             <id>StyleGroovy</id>
           </State>
           <State>
+            <id>Threading issuesJava</id>
+          </State>
+          <State>
             <id>UI Form Problems</id>
+          </State>
+          <State>
+            <id>XML</id>
           </State>
           <State>
             <id>XMLSpring CoreSpring</id>
@@ -491,6 +398,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -635,40 +545,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chatonline" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chatonline" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="styles" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -766,6 +642,84 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chatonline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chatonline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chatonline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chatonline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="listener" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chatonline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chatonline" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -927,36 +881,23 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="logout&#9;PSI&#9;JAVA://org.apache.shiro.web.filter.authc.LogoutFilter&#10;sessionDao&#9;FILE&#9;jar://F:/maven/maven/repository/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/session/mgt/eis/SessionDAO.java&#10;CachingSessionDAO&#9;PSI&#9;JAVA://org.apache.shiro.session.mgt.eis.CachingSessionDAO&#10;SessionDAO&#9;PSI&#9;JAVA://org.apache.shiro.session.mgt.eis.SessionDAO&#10;DefaultSubjectContext&#9;PSI&#9;JAVA://org.apache.shiro.web.subject.support.DefaultWebSubjectContext&#10;HttpSession&#9;PSI&#9;JAVA://javax.servlet.http.HttpSession&#10;FormAuthenticationFilter&#9;FILE&#9;jar://F:/maven/maven/repository/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2.jar!/org/apache/shiro/web/filter/authc/FormAuthenticationFilter.class&#10;LogoutFilter&#9;PSI&#9;JAVA://org.apache.shiro.web.filter.authc.LogoutFilter&#10;validation&#9;FILE&#9;file://F:/IntelliJ IDEA/idea projects/chatonline/src/main/java/com/meng/chatonline/utils/ValidationUtils.java&#10;EhCacheManagerFactoryBean&#9;PSI&#9;JAVA://org.springframework.cache.ehcache.EhCacheManagerFactoryBean&#10;EhCacheRegionFactory&#9;PSI&#9;JAVA://org.hibernate.cache.ehcache.EhCacheRegionFactory" />
-    <property name="last_opened_file_path" value="D:/Java学习/shiro学习/weasel-spring-shiro" />
+    <property name="last_opened_file_path" value="D:/Java学习/shiro学习/shiro-example-master/shiro-example-chapter13" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\IntelliJ IDEA\idea projects\chatonline\src\main\webapp\WEB-INF\views\security" />
-      <recent name="F:\IntelliJ IDEA\idea projects\chatonline\src" />
-      <recent name="F:\IntelliJ IDEA\idea projects\chatonline\src\main\test\java" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.meng.chatonline.service.impl" />
-      <recent name="com.meng.chatonline.service" />
-      <recent name="com.meng.chatonline.dao.impl" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\IntelliJ IDEA\idea projects\chatonline\src\main\webapp\WEB-INF\views\security" />
       <recent name="F:\IntelliJ IDEA\idea projects\chatonline\src\main\webapp\styles" />
@@ -964,60 +905,20 @@
       <recent name="F:\IntelliJ IDEA\idea projects\chatonline\src\main\resources" />
       <recent name="F:\IntelliJ IDEA\idea projects\chatonline\src\main\webapp\images" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.meng.chatonline.service.impl" />
+      <recent name="com.meng.chatonline.service" />
+      <recent name="com.meng.chatonline.dao.impl" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\IntelliJ IDEA\idea projects\chatonline\src\main\webapp\WEB-INF\views\error" />
+      <recent name="F:\IntelliJ IDEA\idea projects\chatonline\src\main\webapp\WEB-INF\views" />
+      <recent name="F:\IntelliJ IDEA\idea projects\chatonline\src\main\webapp\WEB-INF\views\security" />
+      <recent name="F:\IntelliJ IDEA\idea projects\chatonline\src" />
+      <recent name="F:\IntelliJ IDEA\idea projects\chatonline\src\main\test\java" />
+    </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 8.0.30">
-    <configuration default="false" name="SecurityTest.deleteAuthority" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.meng.websocket.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="chatonline" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.meng.websocket.test" />
-      <option name="MAIN_CLASS_NAME" value="com.meng.websocket.test.SecurityTest" />
-      <option name="METHOD_NAME" value="deleteAuthority" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="SecurityTest.testGetAuthorities" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.meng.websocket.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="chatonline" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.meng.websocket.test" />
-      <option name="MAIN_CLASS_NAME" value="com.meng.websocket.test.SecurityTest" />
-      <option name="METHOD_NAME" value="testGetAuthorities" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="GsonTest.testClassName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1083,6 +984,58 @@
       <option name="PACKAGE_NAME" value="com.meng.websocket.test" />
       <option name="MAIN_CLASS_NAME" value="com.meng.websocket.test.GsonTest" />
       <option name="METHOD_NAME" value="testFromJson" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="DataBaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.meng.websocket.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="chatonline" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.meng.websocket.test" />
+      <option name="MAIN_CLASS_NAME" value="com.meng.websocket.test.DataBaseTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="JPATest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.meng.websocket.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="chatonline" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.meng.websocket.test" />
+      <option name="MAIN_CLASS_NAME" value="com.meng.websocket.test.JPATest" />
+      <option name="METHOD_NAME" value="test1" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1681,19 +1634,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 8.0.30" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.SecurityTest.deleteAuthority" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.SecurityTest.testGetAuthorities" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.GsonTest.testClassName" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.MessageTest.testHistoryMessage" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.GsonTest.testFromJson" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.GsonTest.testClassName" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.MessageTest.testHistoryMessage" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.GsonTest.testFromJson" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DataBaseTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.JPATest.test1" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.GsonTest.testFromJson" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MessageTest.testHistoryMessage" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.GsonTest.testClassName" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.SecurityTest.testGetAuthorities" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.SecurityTest.deleteAuthority" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.JPATest.test1" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DataBaseTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.GsonTest.testFromJson" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MessageTest.testHistoryMessage" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.GsonTest.testClassName" />
       </list>
     </recent_temporary>
   </component>
@@ -1770,22 +1723,35 @@
       <workItem from="1483757334525" duration="35058000" />
       <workItem from="1483846198157" duration="38602000" />
       <workItem from="1483929589681" duration="42477000" />
-      <workItem from="1484018291173" duration="1767000" />
+      <workItem from="1484018291173" duration="2054000" />
+      <workItem from="1484020457340" duration="1788000" />
+      <workItem from="1484129654864" duration="8698000" />
+      <workItem from="1484162924406" duration="777000" />
+      <workItem from="1484199506673" duration="19992000" />
+      <workItem from="1484284898617" duration="14449000" />
     </task>
+    <task id="LOCAL-00001" summary="权限控制基本完成，有待完善">
+      <created>1484020174435</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1484020174435</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GsonTest_testFromJson - 2017.01.10 at 01h 36m 08s.xml">
-      <configuration name="GsonTest.testFromJson" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GsonTest_testFromJson - 2017.01.10 at 01h 37m 25s.xml">
-      <configuration name="GsonTest.testFromJson" configurationId="JUnit" />
+    <history-entry file="DataBaseTest - 2017.01.12 at 03h 32m 00s.xml">
+      <configuration name="DataBaseTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="GsonTest_testFromJson - 2017.01.10 at 01h 42m 14s.xml">
       <configuration name="GsonTest.testFromJson" configurationId="JUnit" />
     </history-entry>
     <history-entry file="GsonTest_testFromJson - 2017.01.10 at 01h 44m 11s.xml">
       <configuration name="GsonTest.testFromJson" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JPATest_test1 - 2017.01.12 at 03h 32m 11s.xml">
+      <configuration name="JPATest.test1" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MessageTest_testHistoryMessage - 2017.01.09 at 23h 03m 21s.xml">
       <configuration name="MessageTest.testHistoryMessage" configurationId="JUnit" />
@@ -1807,7 +1773,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="524062000" />
+    <option name="totallyTimeSpent" value="570053000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1820,32 +1786,33 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40723455" sideWeight="0.5064795" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29157668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2340195" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23380129" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24460043" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40723455" sideWeight="0.49352053" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40956825" sideWeight="0.49352053" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896304" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3488915" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3488915" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6697783" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3150525" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32788798" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24784017" sideWeight="0.50775194" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25053996" sideWeight="0.49224806" order="5" side_tool="false" content_ui="combo" x="728" y="85" width="463" height="859" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24298055" sideWeight="0.49224806" order="5" side_tool="false" content_ui="combo" x="728" y="85" width="463" height="859" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991362" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905483" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991362" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1854,7 +1821,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991362" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -1895,7 +1861,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="237" />
+      <option name="time" value="254" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1904,83 +1870,175 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/mgt/AbstractRememberMeManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6507">
-          <caret line="288" column="0" selection-start-line="288" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/filter/authc/FormAuthenticationFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="197" column="0" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/cache/Cache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-ehcache/1.3.2/shiro-ehcache-1.3.2.jar!/org/apache/shiro/cache/ehcache/EhCache.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/session/mgt/eis/CachingSessionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="311" column="28" selection-start-line="311" selection-start-column="28" selection-end-line="311" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/JDK1.8/jdk1.8.0_111/src.zip!/java/util/Collection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="724">
-          <caret line="310" column="23" selection-start-line="310" selection-start-column="23" selection-end-line="310" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/filter/authc/AuthenticatingFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/realm/AuthenticatingRealm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="678" column="19" selection-start-line="678" selection-start-column="19" selection-end-line="678" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/exception/LoginException.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/meng/websocket/test/JPATest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
           <folding>
-            <element signature="e#331#332#0" expanded="true" />
-            <element signature="e#362#363#0" expanded="true" />
+            <element signature="e#148#149#0" expanded="false" />
+            <element signature="e#191#192#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/navigation.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/filter/MyLogoutFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="50" column="50" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/invalidSession.html" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/exception/MyExceptionResolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="62" />
+        <state relative-caret-position="-271">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error/invalidSession.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error/404.html" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/subject/support/DefaultSubjectContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error/404.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error/error.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/ShiroSecurityHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="25" column="90" selection-start-line="25" selection-start-column="90" selection-end-line="25" selection-end-column="90" />
+          <folding>
+            <element signature="e#1057#1066#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/head.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="32" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/ehcache.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/mgt/DefaultWebSecurityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="52" column="56" selection-start-line="52" selection-start-column="56" selection-end-line="52" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/mgt/DefaultSecurityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="70" column="52" selection-start-line="70" selection-start-column="52" selection-end-line="70" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/mgt/SessionsSecurityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="48" column="61" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/mgt/AuthenticatingSecurityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="42" column="63" selection-start-line="42" selection-start-column="63" selection-end-line="42" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/mgt/RealmSecurityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="38" column="61" selection-start-line="38" selection-start-column="61" selection-end-line="38" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/mgt/CachingSecurityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/mgt/AuthorizingSecurityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="46" column="63" selection-start-line="46" selection-start-column="63" selection-end-line="46" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/AuthorityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1988,332 +2046,221 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/broadcast.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1291">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/servlet/AdviceFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/websocket/WebSocketConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/BroadcastController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/navigation.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/filter/authc/LogoutFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="65" column="98" selection-start-line="64" selection-start-column="4" selection-end-line="65" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/servlet/OncePerRequestFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="106" column="22" selection-start-line="106" selection-start-column="22" selection-end-line="106" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/LoginController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/authc.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
-          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyLogoutFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1625">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/meng/websocket/test/JPATest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyRealm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2246">
-          <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyFormAuthenticationFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/meng/websocket/test/MessageTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/MessageServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="37" column="119" selection-start-line="37" selection-start-column="119" selection-end-line="37" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/session/SessionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/session/SessionListenerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="26" column="53" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/session/mgt/eis/EnterpriseCacheSessionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/session/mgt/ImmutableProxiedSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/session/ProxiedSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="46" column="11" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/ChatController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/session/mgt/ExecutorServiceSessionValidationScheduler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/session/mgt/DefaultWebSessionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="283" column="0" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/session/mgt/AbstractNativeSessionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
-          <folding>
-            <element signature="e#7296#7297#0" expanded="false" />
-            <element signature="e#7355#7356#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/ActiveUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/ShiroSecurityHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2-sources.jar!/org/apache/shiro/session/mgt/AbstractValidatingSessionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/meng/websocket/test/GsonTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-82">
-          <caret line="126" column="16" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/ehcache.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-shiro.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1971">
-          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MySessionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/chatRoom.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="151" column="58" selection-start-line="151" selection-start-column="58" selection-end-line="151" selection-end-column="58" />
-          <folding>
-            <marker date="1484019461649" expanded="true" signature="4644:4650" ph="&amp;nbsp;" />
-            <marker date="1484019461649" expanded="true" signature="7977:7983" ph="&amp;nbsp;" />
-            <marker date="1484019461649" expanded="true" signature="9235:9246" ph="..." />
-            <marker date="1484019461649" expanded="true" signature="11340:11346" ph="&amp;nbsp;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-websocket/4.3.3.RELEASE/spring-websocket-4.3.3.RELEASE.jar!/org/springframework/web/socket/handler/WebSocketHandlerDecorator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/websocket/MyWebSocketHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+        <state relative-caret-position="62">
+          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/Param.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/broadcast.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="68" column="35" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/listener/MySessionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="59" column="15" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/chatRoom.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2624">
+          <caret line="306" column="65" selection-start-line="306" selection-start-column="65" selection-end-line="306" selection-end-column="65" />
+          <folding>
+            <marker date="1484297674778" expanded="true" signature="4472:4478" ph="&amp;nbsp;" />
+            <marker date="1484297674778" expanded="true" signature="7805:7811" ph="&amp;nbsp;" />
+            <marker date="1484297674778" expanded="true" signature="9063:9074" ph="..." />
+            <marker date="1484297674778" expanded="true" signature="11168:11174" ph="&amp;nbsp;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-spring/1.3.2/shiro-spring-1.3.2.jar!/org/apache/shiro/spring/web/ShiroFilterFactoryBean.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/filter/MyFormAuthenticationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/filter/authc/FormAuthenticationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="58" column="53" selection-start-line="58" selection-start-column="53" selection-end-line="58" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/filter/authc/AuthenticatingFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/filter/authc/AuthenticationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="34" column="70" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/servlet/ServletContextSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+          <folding>
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1357#1358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/servlet/OncePerRequestFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="193" column="22" selection-start-line="193" selection-start-column="22" selection-end-line="193" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/ChatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/filter/PathMatchingFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="120" column="71" selection-start-line="120" selection-start-column="71" selection-end-line="120" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/servlet/AbstractFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/filter/AccessControlFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+          <folding>
+            <element signature="e#2803#2804#0" expanded="true" />
+            <element signature="e#2834#2835#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-web/1.3.2/shiro-web-1.3.2-sources.jar!/org/apache/shiro/web/filter/authc/UserFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="49" column="48" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/security/MyRealm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/user.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/styles/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/model/Broadcast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-shiro.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/controller/SecurityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/BroadcastServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
-          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/ValidationUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/BaseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/utils/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -2337,7 +2284,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>JPA (chatonline)|JPA</last-edited>
+          <last-edited>Web (chatonline)|Web</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -2360,7 +2307,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.7</last-edited>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -2396,7 +2343,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.4</last-edited>
+          <last-edited>Maven: commons-beanutils:commons-beanutils:1.8.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

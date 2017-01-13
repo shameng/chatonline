@@ -39,13 +39,13 @@ public class MyExceptionResolver implements HandlerExceptionResolver
         //如果是权限验证异常，例如没有权限
         else if (e instanceof UnauthorizedException)
         {
-            mav.setViewName("refuse");
+            mav.setViewName("error/refuse");
         }
         //如果是未知错误
         else
         {
             mav.addObject(Param.ERROR_MSG, "未知错误！");
-            mav.setViewName("error");
+            mav.setViewName("error/error");
         }
         return mav;
     }

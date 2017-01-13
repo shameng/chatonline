@@ -8,6 +8,7 @@ import com.meng.chatonline.service.UserService;
 import com.meng.chatonline.websocket.MyWebSocketHandler;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresUser;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,11 +33,10 @@ public class ChatController
 
     @RequiresPermissions("chatRoom:chatRoom")
     @RequestMapping({"","/"})
-    public String toChatRoom(HttpServletRequest request, HttpSession session)
+    public String toChatRoom(HttpServletRequest request)
     {
         Subject subject = SecurityUtils.getSubject();
         ActiveUser user = (ActiveUser) subject.getPrincipal();
-        session.setAttribute("user", user);
 
         Set<ActiveUser> usersExcludeMe = MyWebSocketHandler.getOnlineUsers();
         usersExcludeMe.remove(user);

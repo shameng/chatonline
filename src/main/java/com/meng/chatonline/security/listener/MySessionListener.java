@@ -1,4 +1,4 @@
-package com.meng.chatonline.security;
+package com.meng.chatonline.security.listener;
 
 import com.google.gson.Gson;
 import com.meng.chatonline.model.ActiveUser;

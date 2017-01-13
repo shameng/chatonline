@@ -10,7 +10,7 @@
 <%@ include file="common.jsp"%>
 <div id="navigation">
     <script type="text/javascript">
-        //使指向本页面的超链接失效
+        //使指向本页面的超链接失效，防止用户重复点击
         $(function () {
             var url = document.location + "";
             url = url.substring(url.lastIndexOf("/") + 1);

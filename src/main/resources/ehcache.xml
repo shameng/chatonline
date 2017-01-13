@@ -36,6 +36,15 @@
         overflowToDisk="true"
         />
 
+    <cache name="shiro-activeSessionCache"
+           maxEntriesLocalHeap="10000"
+           overflowToDisk="true"
+           eternal="false"
+           diskPersistent="false"
+           timeToLiveSeconds="0"
+           timeToIdleSeconds="0"
+           statistics="true"/>
+
     <!--Predefined caches.  Add your cache configuration settings here.
         If you do not have a configuration for your cache a WARNING will be issued when the
         CacheManager starts

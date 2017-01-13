@@ -64,12 +64,12 @@ public class SecurityTest
         System.out.println(authorities);
     }
 
-    @Test
-    public void testFindOwnAuthorities()
-    {
-        List<Authority> authorities = this.authorityService.findOwnAuthorities(1);
-        System.out.println(authorities);
-    }
+//    @Test
+//    public void testFindOwnAuthorities()
+//    {
+//        List<Authority> authorities = this.authorityService.findOwnAuthorities(1);
+//        System.out.println(authorities);
+//    }
 
     @Test
     public void testFindNotOwnAuthorities()
@@ -85,23 +85,23 @@ public class SecurityTest
         System.out.println(roles);
     }
 
-    @Test
-    public void testSaveRole()
-    {
-        Set<Authority> authorities = new HashSet<Authority>();
-        authorities.add(new Authority(2));
-        authorities.add(new Authority(3));
-        authorities.add(new Authority(4));
-        Role role = new Role("aaa", true);
-        role.getAuthorities().addAll(authorities);
-        this.roleService.saveEntity(role);
-    }
+//    @Test
+//    public void testSaveRole()
+//    {
+//        Set<Authority> authorities = new HashSet<Authority>();
+//        authorities.add(new Authority(2));
+//        authorities.add(new Authority(3));
+//        authorities.add(new Authority(4));
+//        Role role = new Role("aaa", true);
+//        role.getAuthorities().addAll(authorities);
+//        this.roleService.saveEntity(role);
+//    }
 
-    @Test
-    public void testDeleteRole()
-    {
-        this.roleService.deleteRole(14);
-    }
+//    @Test
+//    public void testDeleteRole()
+//    {
+//        this.roleService.deleteRole(14);
+//    }
 
     @Test
     public void testFindAllUsers()
@@ -110,14 +110,14 @@ public class SecurityTest
         System.out.println(users);
     }
 
-    @Test
-    public void testFindOwnRoles()
-    {
-        String jpql = "from Role r where r.id in (" +
-                "select r2.id from User u join u.roles r2 where u.id = ?)";
-        List<Role> roles = this.roleService.findEntityByJPQL(jpql, 1);
-        System.out.println(roles);
-    }
+//    @Test
+//    public void testFindOwnRoles()
+//    {
+//        String jpql = "from Role r where r.id in (" +
+//                "select r2.id from User u join u.roles r2 where u.id = ?)";
+//        List<Role> roles = this.roleService.findEntityByJPQL(jpql, 1);
+//        System.out.println(roles);
+//    }
 
     @Test
     public void testGetUser()
@@ -126,16 +126,16 @@ public class SecurityTest
         System.out.println(role);
     }
 
-    @Test
-    public void testClearAuthorities()
-    {
-        this.userService.clearAuthorities(22);
-    }
+//    @Test
+//    public void testClearAuthorities()
+//    {
+//        this.userService.clearAuthorities(22);
+//    }
 
-    @Test
-    public void testDeleteAuthority()
-    {
-        this.authorityService.deleteAuthority(9);
-    }
+//    @Test
+//    public void testDeleteAuthority()
+//    {
+//        this.authorityService.deleteAuthority(9);
+//    }
 
 }

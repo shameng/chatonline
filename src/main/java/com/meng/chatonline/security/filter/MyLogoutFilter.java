@@ -1,4 +1,4 @@
-package com.meng.chatonline.security;
+package com.meng.chatonline.security.filter;
 
 import com.meng.chatonline.model.ActiveUser;
 import com.meng.chatonline.websocket.MyWebSocketHandler;

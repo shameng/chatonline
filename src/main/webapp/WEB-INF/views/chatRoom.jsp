@@ -50,11 +50,6 @@
             })
 
             function clickUser(userDiv) {
-                //如果用户重复点击该 div ，则直接跳过
-                if(toUserId == $(userDiv).children(":hidden").val())
-                {
-                    return;
-                }
                 $("#message").attr("disabled", false);
 
                 toUserName = $(userDiv).attr("title");
@@ -305,15 +300,6 @@
         <div id="headDiv">
             <jsp:include page="head.jsp"></jsp:include>
             <jsp:include page="navigation.jsp"></jsp:include>
-        <%--欢迎你，<font class="userName">${sessionScope.user.name}</font>&nbsp;&nbsp;
-        [<a href="logout">注销</a>]
-        [<a href="register">注册</a>]
-        <div id="navigation">
-            [<a href="broadcast" target="_blank">公告</a>]
-            [<a href="#" target="_blank">用户管理</a>]
-            [<a href="#" target="_blank">角色管理</a>]
-            [<a href="#" target="_blank">权限管理</a>]
-        </div>--%>
             <div id="userPanel">
                 <div id="userPanelText">在线用户</div>
                 <div id="userList">

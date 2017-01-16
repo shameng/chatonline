@@ -9,6 +9,8 @@ import java.io.Serializable;
  */
 public class ActiveUser extends User implements Serializable
 {
+    private static final long serialVersionUID = -5131009085285855912L;
+
     public ActiveUser() {}
 
     public ActiveUser(Integer id)

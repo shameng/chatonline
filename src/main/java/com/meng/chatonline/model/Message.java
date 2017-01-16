@@ -1,6 +1,7 @@
 package com.meng.chatonline.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,8 +9,10 @@ import java.util.Date;
  */
 @Entity
 @Table(name="messages")
-public class Message
+public class Message implements Serializable
 {
+    private static final long serialVersionUID = -4300605539487532221L;
+
     private Integer id;
     private User toUser;
     private User fromUser;

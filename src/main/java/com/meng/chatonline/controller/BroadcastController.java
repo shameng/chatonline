@@ -40,7 +40,7 @@ public class BroadcastController
         return "broadcast";
     }
 
-    @RequiresPermissions("broadcast:create")
+    @RequiresPermissions("broadcast:new")
     @RequestMapping("/newBroadcast")
     public String newBroadcast(Map<String, Object> map)
     {
@@ -48,7 +48,7 @@ public class BroadcastController
         return "editBroadcast";
     }
 
-    @RequiresPermissions("broadcast:create")
+    @RequiresPermissions("broadcast:new")
     @RequestMapping(value="/newBroadcast", method = RequestMethod.POST)
     public String newBroadcast(@Valid Broadcast broadcast, BindingResult result, HttpSession session)
     {

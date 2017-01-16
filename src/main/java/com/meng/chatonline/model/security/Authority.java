@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,8 +14,10 @@ import java.util.Set;
  */
 @Table(name = "authorities")
 @Entity
-public class Authority implements Comparable<Authority>
+public class Authority implements Comparable<Authority>, Serializable
 {
+    private static final long serialVersionUID = 88300476301025417L;
+
     private Integer id;
     @NotEmpty
     private String name;

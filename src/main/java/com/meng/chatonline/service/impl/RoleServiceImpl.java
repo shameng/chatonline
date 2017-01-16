@@ -1,6 +1,5 @@
 package com.meng.chatonline.service.impl;
 
-import com.meng.chatonline.Param;
 import com.meng.chatonline.dao.BaseDao;
 import com.meng.chatonline.model.security.Authority;
 import com.meng.chatonline.model.security.Role;
@@ -9,6 +8,9 @@ import com.meng.chatonline.service.AuthorityService;
 import com.meng.chatonline.service.RoleService;
 import com.meng.chatonline.utils.StringUtils;
 import com.meng.chatonline.utils.ValidationUtils;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +21,7 @@ import java.util.List;
 /**
  * @Author xindemeng
  */
+@CacheConfig(cacheNames = "roleCache")
 @Service("roleService")
 public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleService
 {
@@ -34,14 +37,17 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
         super.setDao(baseDao);
     }
 
+    @Cacheable
     @Transactional
     public List<Role> findAllRolesWithAuthorities()
     {
+        System.out.println("---------查找所有角色-----------------------------");
         String jpql = "select DISTINCT r from Role r left join fetch r.authorities";
         List<Role> roles = this.findEntityByJPQL(jpql);
         return roles;
     }
 
+    @CacheEvict(allEntries = true)
     @Transactional
     public void saveOrUpdateRole(Role role, String[] ownAuthIds)
     {
@@ -57,6 +63,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
         realm.clearAllCachedAuthorizationInfo();
     }
 
+    @CacheEvict(allEntries = true)
     @Transactional
     public void deleteRole(Integer roleId)
     {
@@ -114,5 +121,15 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
             return roles;
         }
         return null;
+    }
+
+    @Cacheable
+    //获得公有角色
+    @Transactional
+    public List<Role> findCommonRoles()
+    {
+        String jpql = "from Role r where r.common = ?";
+        List<Role> roles = this.findEntityByJPQL(jpql, true);
+        return roles;
     }
 }

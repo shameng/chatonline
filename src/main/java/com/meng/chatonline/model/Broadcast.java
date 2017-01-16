@@ -15,6 +15,8 @@ import java.util.Date;
 @Entity
 public class Broadcast implements Serializable
 {
+    private static final long serialVersionUID = 8960313997616914485L;
+
     private Integer id;
     //发表人
     private User utterer;
@@ -23,9 +25,17 @@ public class Broadcast implements Serializable
     @NotEmpty
     private String content;
     private Date date;
-
     //广播类型，0-公告，1-登陆，2-注销。不持久化
     private Integer type = Param.NOTICE_BROADCAST_TYPE;
+
+    public Broadcast(User utterer, String title, String content)
+    {
+        this.utterer = utterer;
+        this.title = title;
+        this.content = content;
+    }
+
+    public Broadcast() {}
 
     @Transient
     public Integer getType()

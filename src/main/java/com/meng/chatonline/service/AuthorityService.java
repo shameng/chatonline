@@ -12,6 +12,9 @@ public interface AuthorityService extends BaseService<Authority>
     //获得用户的所有权限
     List<Authority> getAuthoritiesByUserId(Integer userId);
 
+    //获得所有的权限
+    List<Authority> findAllAuthorities();
+
     //获得所有菜单类型的权限
     List<Authority> findMenuAuthorities();
 

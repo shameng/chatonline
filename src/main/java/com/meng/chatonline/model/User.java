@@ -15,6 +15,8 @@ import java.util.Set;
 @Entity
 public class User implements Serializable
 {
+    private static final long serialVersionUID = 2418805577466640476L;
+
     private Integer id;
     private String account;
     private String name;

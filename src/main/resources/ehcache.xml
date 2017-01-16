@@ -37,13 +37,42 @@
         />
 
     <cache name="shiro-activeSessionCache"
-           maxEntriesLocalHeap="10000"
+           maxElementsInMemory="10000"
            overflowToDisk="true"
            eternal="false"
            diskPersistent="false"
            timeToLiveSeconds="0"
            timeToIdleSeconds="0"
            statistics="true"/>
+
+    <cache name="broadcastCache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="1500"
+           timeToLiveSeconds="3000"
+           overflowToDisk="true"
+    />
+    <cache name="userCache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="0"
+           timeToLiveSeconds="0"
+           overflowToDisk="true"
+    />
+    <cache name="authorityCache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="1500"
+           timeToLiveSeconds="3000"
+           overflowToDisk="true"
+    />
+    <cache name="roleCache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="1500"
+           timeToLiveSeconds="3000"
+           overflowToDisk="true"
+    />
 
     <!--Predefined caches.  Add your cache configuration settings here.
         If you do not have a configuration for your cache a WARNING will be issued when the
@@ -80,18 +109,5 @@
         timeToLiveSeconds="1800"
         overflowToDisk="true"
         />
-
-    <!-- Sample cache named sampleCache2
-        This cache contains 1000 elements. Elements will always be held in memory.
-        They are not expired. -->
-    <cache name="sampleCache2"
-        maxElementsInMemory="1000"
-        eternal="true"
-        timeToIdleSeconds="0"
-        timeToLiveSeconds="0"
-        overflowToDisk="false"
-        /> -->
-
-    <!-- Place configuration for your caches following -->
 
 </ehcache>

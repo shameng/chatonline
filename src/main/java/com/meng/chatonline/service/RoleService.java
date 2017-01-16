@@ -25,4 +25,7 @@ public interface RoleService extends BaseService<Role>
     得到指定id范围的角色
      */
     List<Role> findRolesInRange(String[] ownRoleIds);
+
+    //获得公有角色
+    public List<Role> findCommonRoles();
 }

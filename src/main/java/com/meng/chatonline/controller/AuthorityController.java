@@ -32,7 +32,7 @@ public class AuthorityController
     @RequestMapping({"","/"})
     public String authorityList(Map<String, Object> map)
     {
-        List<Authority> authorities = this.authorityService.findAllEntities();
+        List<Authority> authorities = this.authorityService.findAllAuthorities();
         map.put("authorities", SecurityUtils.getAuthoritiesSortedByMenu(authorities));
         return "security/authorityList";
     }

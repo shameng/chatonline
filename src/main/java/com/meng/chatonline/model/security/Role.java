@@ -14,6 +14,8 @@ import java.util.Set;
 @Entity
 public class Role implements Serializable, Comparable<Role>
 {
+    private static final long serialVersionUID = 8517841198789066378L;
+
     private Integer id;
     private String name;
     //是否公共的

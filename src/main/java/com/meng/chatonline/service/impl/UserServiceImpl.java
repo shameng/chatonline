@@ -8,6 +8,9 @@ import com.meng.chatonline.service.RoleService;
 import com.meng.chatonline.service.UserService;
 import com.meng.chatonline.utils.SecurityUtils;
 import com.meng.chatonline.utils.ValidationUtils;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,9 +18,12 @@ import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.List;
 
+import static org.apache.shiro.web.filter.mgt.DefaultFilter.roles;
+
 /**
  * @Author xindemeng
  */
+@CacheConfig(cacheNames = "userCache")
 @Service("userService")
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService
 {
@@ -72,31 +78,36 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         return ValidationUtils.validateCollection(list) ? list.get(0) : null;
     }
 
+    @CacheEvict(allEntries = true)
     @Transactional
-    //保存用户，使用md5加密密码
+    //保存用户
     public void saveUser(User user)
     {
+        System.out.println("------------------新建用户----------------------");
+        //使用md5加密密码
         String salt = SecurityUtils.generateSalt();
         user.setSalt(salt);
         user.setPassword(SecurityUtils.md5Default(user.getPassword(), salt));
 
         //分配公有角色
-        String jpql = "from Role r where r.common = ?";
-        List<Role> roles = this.roleService.findEntityByJPQL(jpql, true);
-        user.setRoles(new HashSet<Role>(roles));
+        List<Role> commonRoles = this.roleService.findCommonRoles();
+        user.setRoles(new HashSet<Role>(commonRoles));
 
         this.saveEntity(user);
     }
 
+    @Cacheable
     @Transactional
     //获得所有用户及其Role
     public List<User> findUsersWithRole()
     {
+        System.out.println("------------------查询所有用户----------------------");
         String jpql = "select DISTINCT u from User u left join fetch u.roles r left join fetch r.authorities";
         List<User> users = this.findEntityByJPQL(jpql);
         return users;
     }
 
+    @CacheEvict(allEntries = true)
     @Transactional
     //更新用户角色
     public void updateUserRole(Integer userId, String[] ownRoleIds)
@@ -115,6 +126,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         realm.clearCachedAuthorizationInfo(userId);
     }
 
+    @CacheEvict(allEntries = true)
     @Transactional
     //清除该用户的权限
     public void clearAuthorities(Integer userId)
@@ -126,6 +138,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
         realm.clearCachedAuthorizationInfo(userId);
     }
 
+    @CacheEvict(allEntries = true)
     @Transactional
     public void deleteUser(Integer userId)
     {

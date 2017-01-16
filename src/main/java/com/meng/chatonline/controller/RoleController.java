@@ -54,7 +54,9 @@ public class RoleController
     public String editRole(@RequestParam(name="roleId", required = true) Integer roleId,
                            Map<String, Object> map)
     {
-        map.put("role", roleService.getEntity(roleId));
+        Role role = roleService.getEntity(roleId);
+        role.setAuthorities(null);
+        map.put("role", role);
         //获得属于该角色的Authority，只包含权限类型的
         List<Authority> ownAuthorities = this.authorityService.findOwnAuthorities(roleId);
         //根据菜单来排序

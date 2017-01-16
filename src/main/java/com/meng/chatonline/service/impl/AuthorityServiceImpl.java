@@ -5,10 +5,12 @@ import com.meng.chatonline.dao.BaseDao;
 import com.meng.chatonline.model.security.Authority;
 import com.meng.chatonline.security.MyRealm;
 import com.meng.chatonline.service.AuthorityService;
-import com.meng.chatonline.service.UserService;
 import com.meng.chatonline.utils.CollectionUtils;
 import com.meng.chatonline.utils.StringUtils;
 import com.meng.chatonline.utils.ValidationUtils;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +21,7 @@ import java.util.List;
 /**
  * @Author xindemeng
  */
+@CacheConfig(cacheNames = "authorityCache")
 @Service("authorityService")
 public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements AuthorityService
 {
@@ -32,6 +35,7 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
         super.setDao(baseDao);
     }
 
+    @Cacheable
     @Transactional
     //获得用户的所有权限，返回set集合防止里面有重复的元素
     public List<Authority> getAuthoritiesByUserId(Integer userId)
@@ -43,6 +47,16 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
         return this.executeSQLQuery(Authority.class, sql, true, true, userId);
     }
 
+    @Cacheable(cacheNames = "authorityCache")
+    @Transactional
+    //获得所有的权限
+    public List<Authority> findAllAuthorities()
+    {
+        System.out.println("----------------查找所有的权限-------------------");
+        return this.findAllEntities();
+    }
+
+    @Cacheable
     @Transactional
     //获得所有菜单类型的权限
     public List<Authority> findMenuAuthorities()
@@ -52,6 +66,7 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
         return authorities;
     }
 
+    @CacheEvict(allEntries = true)
     @Transactional
     public void deleteAuthority(Integer authId)
     {
@@ -90,6 +105,7 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
         realm.clearAllCachedAuthorizationInfo();
     }
 
+    @Cacheable
     @Transactional
     //获得属于该角色的Authority，只包含权限类型的
     public List<Authority> findOwnAuthorities(Integer roleId)
@@ -100,6 +116,7 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
         return authorities;
     }
 
+    @Cacheable
     @Transactional
     //获得不属于该角色的Authority，只包含权限类型的
     public List<Authority> findNotOwnAuthorities(Integer roleId)
@@ -110,6 +127,7 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
         return authorities;
     }
 
+    @Cacheable
     @Transactional
     //获得所有权限类型的权限
     public List<Authority> findAuthAuthorities()
@@ -128,6 +146,7 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
         return authorities;
     }
 
+    @CacheEvict(allEntries = true)
     @Transactional
     public void saveOrUpdateAuthority(Authority authority)
     {

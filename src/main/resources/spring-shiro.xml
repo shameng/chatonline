@@ -74,7 +74,7 @@
 
     <!--缓存管理器-->
     <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
-        <property name="cacheManager" ref="ehCacheManager"></property>
+        <property name="cacheManager" ref="cacheManagerFactory"></property>
         <!--<property name="cacheManagerConfigFile" value="classpath:ehcache.xml"></property>-->
     </bean>
 
@@ -134,7 +134,7 @@
     <bean id="cookieRememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
         <property name="cookie" ref="rememberMeCookie"></property>
         <!--
-        加密rememberMe Cookie的密钥；默认AES算法
+        加密rememberMe Cookie的密钥；默认AES算法，下面value使用了SpEL表达式
         不加上这个会报异常org.apache.shiro.crypto.CryptoException: Unable to execute 'doFinal' with cipher instance [javax.crypto.Cipher@4d9a1041].
         -->
         <property name="cipherKey" value="#{T(org.apache.shiro.codec.Base64).decode('4AvVhmFLUs0KTA3Kprsdag==')}"/>

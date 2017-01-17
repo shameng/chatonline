@@ -6,7 +6,7 @@
     <!--与web.xml文件里的shiroFilter过滤器里的targetBeanName相对应-->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"></property>
-        <!--登陆页面，必须设置，否则默认是/login.jsp-->
+        <!--登陆页面地址，必须设置，否则默认是/login.jsp-->
         <property name="loginUrl" value="/login"></property>
         <!--没有权限跳转到的页面，本系统使用了MyExceptionResolver类来处理无权限异常-->
         <!--<property name="unauthorizedUrl" value="/refuse"></property>-->
@@ -14,6 +14,7 @@
             <map>
                 <entry key="authc" value-ref="authenticationFilter"></entry>
                 <entry key="logout" value-ref="logoutFilter"></entry>
+                <entry key="ssl" value-ref="sslFilter"></entry>
             </map>
         </property>
         <!-- 过滤器链定义，从上向下顺序执行，一般将/**放在最下边 -->
@@ -25,6 +26,8 @@
                 /styles/** = anon
                 <!--注册用户可匿名访问-->
                 /register/** = anon
+                <!--登陆地址采用SSL，即HTTPS协议，？此时还必须加上authc，否则不执行登录验证-->
+                /login = ssl,authc
                 <!-- 请求 /logout 地址，shiro去清除session-->
                 /logout = logout
                 <!--测试 user-->
@@ -63,7 +66,8 @@
         <property name="rememberMeParam" value="rememberMe"></property>
         <!--认证成功后跳转的页面，默认认证成功自动跳转到上一个请求路径-->
         <!--<property name="successUrl" value="/chatRoom"></property>-->
-        <property name="loginUrl" value="/login"></property>
+        <!--登陆验证地址，同shiroFilter配置的loginUrl值一样-->
+        <!--<property name="loginUrl" value="/doLogin"></property>-->
 
         <!--设置是否一个用户只允许在一处登陆-->
         <property name="onlyOnePermitLogin" value="true"></property>
@@ -138,5 +142,11 @@
         不加上这个会报异常org.apache.shiro.crypto.CryptoException: Unable to execute 'doFinal' with cipher instance [javax.crypto.Cipher@4d9a1041].
         -->
         <property name="cipherKey" value="#{T(org.apache.shiro.codec.Base64).decode('4AvVhmFLUs0KTA3Kprsdag==')}"/>
+    </bean>
+
+    <!--配置SSL过滤器-->
+    <bean id="sslFilter" class="org.apache.shiro.web.filter.authz.SslFilter">
+        <!--SslFilter默认端口是443，此处使用了8443-->
+        <property name="port" value="8443"></property>
     </bean>
 </beans>

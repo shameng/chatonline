@@ -73,6 +73,13 @@
            timeToLiveSeconds="3000"
            overflowToDisk="true"
     />
+    <cache name="userSessionCache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="900"
+           timeToLiveSeconds="1800"
+           overflowToDisk="true"
+    />
 
     <!--Predefined caches.  Add your cache configuration settings here.
         If you do not have a configuration for your cache a WARNING will be issued when the

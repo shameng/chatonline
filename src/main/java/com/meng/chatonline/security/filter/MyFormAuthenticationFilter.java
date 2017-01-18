@@ -1,7 +1,5 @@
 package com.meng.chatonline.security.filter;
 
-import com.meng.chatonline.model.ActiveUser;
-import com.meng.chatonline.security.ShiroSecurityHelper;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
@@ -20,9 +18,6 @@ import javax.servlet.ServletResponse;
  */
 public class MyFormAuthenticationFilter extends FormAuthenticationFilter
 {
-    //是否一个用户只允许在一处登陆
-    private boolean onlyOnePermitLogin = true;
-
     //重写该方法，使successUrl属性生效
     @Override
     protected void issueSuccessRedirect(ServletRequest request, ServletResponse response) throws Exception
@@ -58,23 +53,7 @@ public class MyFormAuthenticationFilter extends FormAuthenticationFilter
         if (session != null)
             session.setAttribute("user", subject.getPrincipal());
 
-        //控制一个用户只能在一处登陆
-        if (isOnlyOnePermitLogin())
-        {
-            ActiveUser user = (ActiveUser) subject.getPrincipal();
-            ShiroSecurityHelper.checkLogined(user);
-        }
-
         return super.onLoginSuccess(token, subject, request, response);
     }
 
-    public boolean isOnlyOnePermitLogin()
-    {
-        return onlyOnePermitLogin;
-    }
-
-    public void setOnlyOnePermitLogin(boolean onlyOnePermitLogin)
-    {
-        this.onlyOnePermitLogin = onlyOnePermitLogin;
-    }
 }

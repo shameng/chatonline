@@ -15,6 +15,7 @@
                 <entry key="authc" value-ref="authenticationFilter"></entry>
                 <entry key="logout" value-ref="logoutFilter"></entry>
                 <entry key="ssl" value-ref="sslFilter"></entry>
+                <entry key="kickout" value-ref="kickout"></entry>
             </map>
         </property>
         <!-- 过滤器链定义，从上向下顺序执行，一般将/**放在最下边 -->
@@ -27,13 +28,14 @@
                 <!--注册用户可匿名访问-->
                 /register/** = anon
                 <!--登陆地址采用SSL，即HTTPS协议，？此时还必须加上authc，否则不执行登录验证-->
-                /login = ssl,authc
+                <!--/login = ssl,authc-->
+                /login = authc
                 <!-- 请求 /logout 地址，shiro去清除session-->
                 /logout = logout
                 <!--测试 user-->
                 /user.jsp = user
                 <!--/** = authc 所有url都必须认证通过才可以访问-->
-                /** = authc
+                /** = kickout,authc
             </value>
         </property>
     </bean>
@@ -148,5 +150,15 @@
     <bean id="sslFilter" class="org.apache.shiro.web.filter.authz.SslFilter">
         <!--SslFilter默认端口是443，此处使用了8443-->
         <property name="port" value="8443"></property>
+    </bean>
+
+    <!--配置自定义并发登录人数控制过滤器-->
+    <bean id="kickout" class="com.meng.chatonline.security.filter.KickoutSessionControlFilter">
+        <property name="kickoutAfter" value="false"></property>
+        <property name="sessionManager" ref="shiroSessionManager"></property>
+        <property name="kickoutUrl" value="/login?kickout=1"></property>
+        <property name="maxSession" value="1"></property>
+        <property name="cacheManager" ref="shiroCacheManager"></property>
+        <property name="cacheName" value="userSessionCache"></property>
     </bean>
 </beans>

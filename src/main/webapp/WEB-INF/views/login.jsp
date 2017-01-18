@@ -29,9 +29,11 @@
             一个月内记住我:
             <input id="rememberMe" name="rememberMe" type="checkbox">
             <br>
+            <c:if test="${not empty param.kickout}">
+                <font class="error">您被踢出登录。</font><br>
+            </c:if>
             <c:if test="${not empty errorMsg}">
-                <font class="error">${errorMsg}</font>
-                <br>
+                <font class="error">${errorMsg}</font><br>
             </c:if>
             <input type="submit" value="登陆">
             <div>

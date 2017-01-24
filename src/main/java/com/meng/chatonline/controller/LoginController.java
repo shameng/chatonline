@@ -29,7 +29,7 @@ public class LoginController
         if (ValidationUtils.validateStr(shiroLoginFailure))
         {
             System.out.println("---------------------" + shiroLoginFailure + "----------------");
-            throw new LoginException(shiroLoginFailure, "login");
+            throw new LoginException(shiroLoginFailure);
         }
         return "redirect:/login";
     }

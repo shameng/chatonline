@@ -54,9 +54,14 @@
     </bean>
 
     <!--凭证匹配器-->
-    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+    <bean id="credentialsMatcher" class="com.meng.chatonline.security.RetryLimitHashedCredentialsMatcher">
         <property name="hashAlgorithmName" value="md5"></property>
         <property name="hashIterations" value="2"></property>
+
+        <property name="cacheManager" ref="shiroCacheManager"></property>
+        <property name="cacheName" value="passwordRetryCache"></property>
+        <!--最多重复错误登陆次数-->
+        <property name="maxRetryCount" value="5"></property>
     </bean>
 
     <!-- 自定义form认证过滤器 -->
@@ -137,7 +142,9 @@
     <bean id="cookieRememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
         <property name="cookie" ref="rememberMeCookie"></property>
         <!--
-        加密rememberMe Cookie的密钥；默认AES算法，下面value使用了SpEL表达式
+        加密rememberMe Cookie的密钥；默认AES算法，
+        rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度（128 256 512 位）
+        下面value使用了SpEL表达式
         不加上这个会报异常org.apache.shiro.crypto.CryptoException: Unable to execute 'doFinal' with cipher instance [javax.crypto.Cipher@4d9a1041].
         -->
         <property name="cipherKey" value="#{T(org.apache.shiro.codec.Base64).decode('4AvVhmFLUs0KTA3Kprsdag==')}"/>

@@ -21,7 +21,7 @@
             <div class="loginText">在线聊天系统</div>
             <br>
             账号:
-            <input id="username" name="account" type="text" class="text">
+            <input id="account" name="account" type="text" class="text">
             <br>
             密码:
             <input id="password" name="password" type="password" class="text">

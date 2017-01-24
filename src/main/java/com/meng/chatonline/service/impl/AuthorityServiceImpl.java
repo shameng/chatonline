@@ -1,10 +1,12 @@
 package com.meng.chatonline.service.impl;
 
-import com.meng.chatonline.Param;
+import com.meng.chatonline.Constants;
 import com.meng.chatonline.dao.BaseDao;
 import com.meng.chatonline.model.security.Authority;
+import com.meng.chatonline.model.security.Role;
 import com.meng.chatonline.security.MyRealm;
 import com.meng.chatonline.service.AuthorityService;
+import com.meng.chatonline.service.RoleService;
 import com.meng.chatonline.utils.CollectionUtils;
 import com.meng.chatonline.utils.StringUtils;
 import com.meng.chatonline.utils.ValidationUtils;
@@ -27,6 +29,8 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
 {
     @Resource
     private MyRealm realm;
+    @Resource
+    private RoleService roleService;
 
     @Resource(name = "authorityDao")
     @Override
@@ -37,7 +41,7 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
 
     @Cacheable
     @Transactional
-    //获得用户的所有权限，返回set集合防止里面有重复的元素
+    //获得用户的所有权限
     public List<Authority> getAuthoritiesByUserId(Integer userId)
     {
         String sql = "select * from authorities where available = ? and id in (" +
@@ -47,7 +51,7 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
         return this.executeSQLQuery(Authority.class, sql, true, true, userId);
     }
 
-    @Cacheable(cacheNames = "authorityCache")
+    @Cacheable
     @Transactional
     //获得所有的权限
     public List<Authority> findAllAuthorities()
@@ -62,11 +66,11 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
     public List<Authority> findMenuAuthorities()
     {
         String jpql = "from Authority a where a.type = ?";
-        List<Authority> authorities = this.findEntityByJPQL(jpql, Param.MENU_TYPE);
+        List<Authority> authorities = this.findEntityByJPQL(jpql, Constants.MENU_TYPE);
         return authorities;
     }
 
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"authorityCache","roleCache","userCache"}, allEntries = true)
     @Transactional
     public void deleteAuthority(Integer authId)
     {
@@ -75,7 +79,7 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
 
         Authority authority = this.getEntity(authId);
         //如果是菜单类型权限，则还要把其包含的普通类型权限删除
-        if (authority.getType() == Param.MENU_TYPE)
+        if (authority.getType() == Constants.MENU_TYPE)
         {
             String jpql1 = "from Authority a where a.menu.id = ?";
             List<Authority> auths = this.findEntityByJPQL(jpql1, authId);
@@ -112,7 +116,7 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
     {
         String jpql = "select a from Authority a join a.roles r " +
                 "where a.type = ? and r.id = ?";
-        List<Authority> authorities = this.findEntityByJPQL(jpql, Param.AUTH_TYPE, roleId);
+        List<Authority> authorities = this.findEntityByJPQL(jpql, Constants.AUTH_TYPE, roleId);
         return authorities;
     }
 
@@ -123,7 +127,7 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
     {
         String jpql = "from Authority a where a.type = ? and a.id not in (" +
                 "select a2.id from Authority a2 join a2.roles r where r.id = ?)";
-        List<Authority> authorities = this.findEntityByJPQL(jpql, Param.AUTH_TYPE, roleId);
+        List<Authority> authorities = this.findEntityByJPQL(jpql, Constants.AUTH_TYPE, roleId);
         return authorities;
     }
 
@@ -133,7 +137,7 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
     public List<Authority> findAuthAuthorities()
     {
         String jpql = "from Authority a where a.type = ?";
-        List<Authority> authorities = this.findEntityByJPQL(jpql, Param.AUTH_TYPE);
+        List<Authority> authorities = this.findEntityByJPQL(jpql, Constants.AUTH_TYPE);
         return authorities;
     }
 
@@ -146,11 +150,40 @@ public class AuthorityServiceImpl extends BaseServiceImpl<Authority> implements 
         return authorities;
     }
 
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"authorityCache","roleCache","userCache"}, allEntries = true)
     @Transactional
     public void saveOrUpdateAuthority(Authority authority)
     {
-        this.saveOrUpdateEntity(authority);
+        //原先的权限
+        Boolean originalCommon = null;
+        if (authority.getId() != null)
+            originalCommon = this.getEntity(authority.getId()).getCommon();
+
+        authority = this.saveOrUpdateEntity(authority);
+
+        //如果是权限（按钮）类型的话要检查公共属性
+        if (authority.getType() == Constants.AUTH_TYPE)
+        {
+            //如果是新建的权限或者权限的公共属性改变了，则要对公共角色做出相应的改变
+            if (originalCommon == null
+                    || originalCommon != authority.getCommon())
+            {
+                //获得公共角色
+                Role role = this.roleService.findCommonRoles().get(0);
+                //如果变成了公共的，则向角色权限关系表插入
+                if (authority.getCommon())
+                {
+                    String sql = "insert into role_authority(role_id, authority_id) values(?,?)";
+                    this.executeSql(sql, role.getId(), authority.getId());
+                }
+                //如果非新建的而且变成了非公共的，则向角色权限关系表删除
+                else if (originalCommon != null && !authority.getCommon())
+                {
+                    String sql = "delete from role_authority where role_id = ? and authority_id = ?";
+                    this.executeSql(sql, role.getId(), authority.getId());
+                }
+            }
+        }
 
         //清除系统的权限缓存
         realm.clearAllCachedAuthorizationInfo();

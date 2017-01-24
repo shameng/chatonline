@@ -18,7 +18,7 @@ public class Role implements Serializable, Comparable<Role>
 
     private Integer id;
     private String name;
-    //是否公共的
+    //是否公共的，规定只有一个公共的角色，里面包含了所有公共的权限
     private Boolean common = false;
     //是否可用，默认可用
     private Boolean available = true;
@@ -94,6 +94,15 @@ public class Role implements Serializable, Comparable<Role>
 
     @Override
     public String toString()
+    {
+        return "Role{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    @Transient
+    public String getDesc()
     {
         StringBuffer buffer = new StringBuffer("");
         buffer.append("名称：" + this.name + "\r\n");

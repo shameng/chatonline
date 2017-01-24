@@ -1,6 +1,5 @@
 package com.meng.chatonline.security.filter;
 
-import com.meng.chatonline.Param;
 import com.meng.chatonline.model.ActiveUser;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
@@ -39,6 +38,7 @@ public class KickoutSessionControlFilter extends AccessControlFilter
 
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception
     {
+        //返回false就会到onAccessDenied方法上继续处理
         return false;
     }
 
@@ -94,7 +94,7 @@ public class KickoutSessionControlFilter extends AccessControlFilter
             //会话被踢出
             subject.logout();
 
-            //保存当前请求地址
+            //保存当前地址并重定向到登录界面
             saveRequest(request);
             WebUtils.issueRedirect(request, response, kickoutUrl);
             //不执行后面的拦截器了

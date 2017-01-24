@@ -1,6 +1,5 @@
 package com.meng.websocket.test;
 
-import com.meng.chatonline.Param;
 import com.meng.chatonline.model.User;
 import com.meng.chatonline.model.security.Authority;
 import com.meng.chatonline.model.security.Role;
@@ -15,9 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @Author xindemeng
@@ -137,5 +134,12 @@ public class SecurityTest
 //    {
 //        this.authorityService.deleteAuthority(9);
 //    }
+
+    @Test
+    public void testFindAllUserWithRole()
+    {
+        List<User> users = this.userService.findUsersWithRole();
+        System.out.println(users);
+    }
 
 }

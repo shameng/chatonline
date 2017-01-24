@@ -1,19 +1,13 @@
 package com.meng.chatonline.controller;
 
-import com.meng.chatonline.Param;
+import com.meng.chatonline.Constants;
 import com.meng.chatonline.exception.LoginException;
-import com.meng.chatonline.model.User;
-import com.meng.chatonline.security.MyRealm;
-import com.meng.chatonline.service.UserService;
 import com.meng.chatonline.utils.ValidationUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.Map;
 
 /**
  * @Author xindemeng
@@ -31,7 +25,7 @@ public class LoginController
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String doLogin(HttpServletRequest request) throws Exception
     {
-        String shiroLoginFailure = (String) request.getAttribute(Param.SHIRO_LOGIN_FAILURE);
+        String shiroLoginFailure = (String) request.getAttribute(Constants.SHIRO_LOGIN_FAILURE);
         if (ValidationUtils.validateStr(shiroLoginFailure))
         {
             System.out.println("---------------------" + shiroLoginFailure + "----------------");

@@ -1,11 +1,13 @@
 package com.meng.chatonline.service.impl;
 
 import com.meng.chatonline.dao.BaseDao;
+import com.meng.chatonline.model.User;
 import com.meng.chatonline.model.security.Authority;
 import com.meng.chatonline.model.security.Role;
 import com.meng.chatonline.security.MyRealm;
 import com.meng.chatonline.service.AuthorityService;
 import com.meng.chatonline.service.RoleService;
+import com.meng.chatonline.service.UserService;
 import com.meng.chatonline.utils.StringUtils;
 import com.meng.chatonline.utils.ValidationUtils;
 import org.springframework.cache.annotation.CacheConfig;
@@ -16,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -27,6 +30,8 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
 {
     @Resource
     private AuthorityService authorityService;
+    @Resource
+    private UserService userService;
     @Resource
     private MyRealm realm;
 
@@ -47,7 +52,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
         return roles;
     }
 
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"authorityCache","roleCache","userCache"}, allEntries = true)
     @Transactional
     public void saveOrUpdateRole(Role role, String[] ownAuthIds)
     {
@@ -63,7 +68,7 @@ public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleServic
         realm.clearAllCachedAuthorizationInfo();
     }
 
-    @CacheEvict(allEntries = true)
+    @CacheEvict(cacheNames = {"authorityCache","roleCache","userCache"}, allEntries = true)
     @Transactional
     public void deleteRole(Integer roleId)
     {

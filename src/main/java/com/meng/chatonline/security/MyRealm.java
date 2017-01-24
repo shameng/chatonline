@@ -24,6 +24,8 @@ import org.apache.shiro.util.ByteSource;
 import javax.annotation.Resource;
 import java.util.List;
 
+import static org.apache.shiro.web.filter.mgt.DefaultFilter.user;
+
 /**
  * @Author xindemeng
  */
@@ -38,9 +40,9 @@ public class MyRealm extends AuthorizingRealm
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection)
     {
         ActiveUser user = (ActiveUser) principalCollection.getPrimaryPrincipal();
-        List<Authority> authorities = authorityService.getAuthoritiesByUserId(user.getId());
 
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+        List<Authority> authorities = authorityService.getAuthoritiesByUserId(user.getId());
         //添加用户权限
         for (Authority authority : authorities)
         {
@@ -64,6 +66,7 @@ public class MyRealm extends AuthorizingRealm
         String salt = user.getSalt();
 
         ActiveUser activeUser = new ActiveUser(user.getId(), user.getAccount(),user.getName());
+        activeUser.setSuperAdmin(user.getSuperAdmin());
 
         SimpleAuthenticationInfo authenticationInfo = null;
         try
@@ -118,4 +121,14 @@ public class MyRealm extends AuthorizingRealm
         super.clearCachedAuthenticationInfo(principals);
     }
 
+    @Override
+    public boolean isPermitted(PrincipalCollection principals, String permission)
+    {
+        ActiveUser user = (ActiveUser) principals.getPrimaryPrincipal();
+        //如果是超级管理员，则直接通过权限验证
+        if (user.getSuperAdmin())
+            return true;
+
+        return super.isPermitted(principals, permission);
+    }
 }

@@ -98,11 +98,12 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 
     @Cacheable
     @Transactional
-    //获得所有用户及其Role
+    //获得所有用户及其Role，超级管理员排在前面
     public List<User> findUsersWithRole()
     {
         System.out.println("------------------查询所有用户----------------------");
-        String jpql = "select DISTINCT u from User u left join fetch u.roles r left join fetch r.authorities";
+        String jpql = "select DISTINCT u from User u left join fetch u.roles r " +
+                "left join fetch r.authorities order by u.superAdmin desc";
         List<User> users = this.findEntityByJPQL(jpql);
         return users;
     }

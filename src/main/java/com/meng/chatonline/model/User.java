@@ -1,6 +1,7 @@
 package com.meng.chatonline.model;
 
 import com.meng.chatonline.model.security.Role;
+import com.meng.chatonline.utils.ValidationUtils;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,6 +23,7 @@ public class User implements Serializable
     private String name;
     private String password;
     private String salt;
+    private Boolean superAdmin = false;
     //角色
     private Set<Role> roles = new HashSet<Role>();
 
@@ -109,6 +111,16 @@ public class User implements Serializable
         this.password = password;
     }
 
+    public Boolean getSuperAdmin()
+    {
+        return superAdmin;
+    }
+
+    public void setSuperAdmin(Boolean superAdmin)
+    {
+        this.superAdmin = superAdmin;
+    }
+
     @JoinTable(name="user_role",
             joinColumns = {@JoinColumn(name="user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name="role_id", referencedColumnName = "id")})
@@ -154,4 +166,5 @@ public class User implements Serializable
     {
         return this.id * 37;
     }
+
 }

@@ -8,14 +8,14 @@ package com.meng.chatonline.utils;
 public class StringUtils
 {
     //把数组合并成字符串，用“,”隔开
-    public static String arrToStr(String[] ownAuthIds)
+    public static String arrToStr(Object[] objects)
     {
         String temp = "";
-        if (ValidationUtils.validateArray(ownAuthIds))
+        if (ValidationUtils.validateArray(objects))
         {
-            for (String str : ownAuthIds)
+            for (Object o : objects)
             {
-                temp += str + ",";
+                temp += o.toString() + ",";
             }
             return temp.substring(0, temp.length() - 1);
         }

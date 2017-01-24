@@ -55,7 +55,6 @@ public class RoleController
                            Map<String, Object> map)
     {
         Role role = roleService.getEntity(roleId);
-        role.setAuthorities(null);
         map.put("role", role);
         //获得属于该角色的Authority，只包含权限类型的
         List<Authority> ownAuthorities = this.authorityService.findOwnAuthorities(roleId);

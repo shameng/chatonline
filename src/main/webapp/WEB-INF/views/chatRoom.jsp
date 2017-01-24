@@ -1,4 +1,4 @@
-<%@ page import="com.meng.chatonline.Param" %><%--
+<%@ page import="com.meng.chatonline.Constants" %><%--
   Created by IntelliJ IDEA.
   User: bang
   Date: 2016/11/3
@@ -119,7 +119,7 @@
                 }
                 else{
                     //如果是登陆广播
-                    if (data.type == <%=Param.LOGIN_BROADCAST_TYPE%>) {
+                    if (data.type == <%=Constants.LOGIN_BROADCAST_TYPE%>) {
                         var user = data.utterer;
                         if ($("#"+user.id+"colorUserDiv")[0] == null) {
                             console.log("用户"+user.name+"登陆.");
@@ -133,7 +133,7 @@
                         }
                     }
                     //如果是注销广播
-                    else if (data.type == <%=Param.LOGOUT_BROADCAST_TYPE%>) {
+                    else if (data.type == <%=Constants.LOGOUT_BROADCAST_TYPE%>) {
                         var user = data.utterer;
                         console.log("用户" + user.name + "注销登录.");
                         $("#" + user.id + "colorUserDiv").remove();

@@ -68,14 +68,26 @@
                             <td>${user.name}</td>
                             <td>
                                 <ul id="${user.id}ulRole">
-                                    <c:forEach items="${user.roles}" var="role">
-                                        <li class="${role.available?'available':'unavailable'}" title="${role}">${role.name}</li>
-                                    </c:forEach>
+                                    <c:if test="${user.superAdmin}">
+                                        <li>超级管理员</li>
+                                    </c:if>
+                                    <c:if test="${!user.superAdmin}">
+                                        <c:forEach items="${user.roles}" var="role">
+                                            <li class="${role.available?'available':'unavailable'}" title="${role.desc}">${role.name}</li>
+                                        </c:forEach>
+                                    </c:if>
                                 </ul>
                             </td>
-                            <td><a href="user/editUserRole?userId=${user.id}">编辑角色</a></td>
-                            <td><a href="javascript:clearAuthorities('${user.id}')">清空权限</a></td>
-                            <td><a href="javascript:deleteUser('${user.id}')">删除用户</a></td>
+                            <c:if test="${user.superAdmin}">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </c:if>
+                            <c:if test="${!user.superAdmin}">
+                                <td><a href="user/editUserRole?userId=${user.id}">编辑角色</a></td>
+                                <td><a href="javascript:clearAuthorities('${user.id}')">清空权限</a></td>
+                                <td><a href="javascript:deleteUser('${user.id}')">删除用户</a></td>
+                            </c:if>
                         </tr>
                     </c:forEach>
                 </table>

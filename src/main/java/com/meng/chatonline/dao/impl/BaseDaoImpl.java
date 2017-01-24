@@ -36,8 +36,8 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T>
 		entityManager.merge(t);
 	}
 
-	public void saveOrUpdateEntity(T t) {
-		entityManager.merge(t);
+	public T saveOrUpdateEntity(T t) {
+		return entityManager.merge(t);
 	}
 
 	public void deleteEntity(T t) {

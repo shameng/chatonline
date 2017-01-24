@@ -1,6 +1,6 @@
 package com.meng.chatonline.controller;
 
-import com.meng.chatonline.Param;
+import com.meng.chatonline.Constants;
 import com.meng.chatonline.model.security.Authority;
 import com.meng.chatonline.service.AuthorityService;
 import com.meng.chatonline.utils.SecurityUtils;
@@ -67,8 +67,12 @@ public class AuthorityController
         }
 
         System.out.println(authority);
-        if (authority.getType() == Param.MENU_TYPE)
+        if (authority.getType() == Constants.MENU_TYPE)
+        {
             authority.setMenu(null);
+            authority.setAvailable(true);
+            authority.setCommon(false);
+        }
         authorityService.saveOrUpdateAuthority(authority);
         return "redirect:/authority";
     }

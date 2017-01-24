@@ -81,10 +81,6 @@
                                     <td><form:input path="name" class="text"/></td>
                                 </tr>
                                 <tr>
-                                    <td>是否公有：</td>
-                                    <td><form:checkbox path="common"/></td>
-                                </tr>
-                                <tr>
                                     <td>是否可用：</td>
                                     <td><form:checkbox path="available"/></td>
                                 </tr>

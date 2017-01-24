@@ -40,8 +40,8 @@ public abstract class BaseServiceImpl<T> implements BaseService<T>
 	}
 
 	@Transactional
-	public void saveOrUpdateEntity(T t) {
-		dao.saveOrUpdateEntity(t);
+	public T saveOrUpdateEntity(T t) {
+		return dao.saveOrUpdateEntity(t);
 	}
 
 	@Transactional

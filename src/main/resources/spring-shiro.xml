@@ -70,9 +70,6 @@
         <!--<property name="successUrl" value="/chatRoom"></property>-->
         <!--登陆验证地址，同shiroFilter配置的loginUrl值一样-->
         <!--<property name="loginUrl" value="/doLogin"></property>-->
-
-        <!--设置是否一个用户只允许在一处登陆-->
-        <property name="onlyOnePermitLogin" value="true"></property>
     </bean>
 
     <!--自定义注销退出过滤器，用于用户注销时向其他用户广播注销消息-->

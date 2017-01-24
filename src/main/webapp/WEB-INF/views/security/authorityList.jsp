@@ -58,7 +58,8 @@
                             <th>权限类型</th>
                             <th>URL</th>
                             <th>权限代码</th>
-                            <th>是否可用</th>
+                            <th>可用的</th>
+                            <th>公共的</th>
                             <th>编辑</th>
                             <th>删除</th>
                         </tr>
@@ -69,7 +70,10 @@
                                     <td>菜单</td>
                                     <td>${menu.key.url}</td>
                                     <td>${menu.key.code}</td>
-                                    <td>${menu.key.available? "是" : "否"}</td>
+                                    <td></td>
+                                    <td></td>
+                                    <%--<td>${menu.key.available? "是" : "否"}</td>--%>
+                                    <%--<td>${menu.key.common? "是" : "否"}</td>--%>
                                     <td><a href="authority/editAuthority?authId=${menu.key.id}">编辑</a></td>
                                     <td><a href="javascript:deleteAuthority('${menu.key.id}')">删除</a></td>
                                 </tr>
@@ -80,6 +84,7 @@
                                         <td>${auth.url}</td>
                                         <td>${auth.code}</td>
                                         <td>${auth.available? "是" : "否"}</td>
+                                        <td>${auth.common? "是" : "否"}</td>
                                         <td><a href="authority/editAuthority?authId=${auth.id}">编辑</a></td>
                                         <td><a href="javascript:deleteAuthority('${auth.id}')">删除</a></td>
                                     </tr>

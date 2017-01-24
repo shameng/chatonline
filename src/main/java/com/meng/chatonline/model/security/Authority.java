@@ -1,6 +1,6 @@
 package com.meng.chatonline.model.security;
 
-import com.meng.chatonline.Param;
+import com.meng.chatonline.Constants;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -31,6 +31,8 @@ public class Authority implements Comparable<Authority>, Serializable
     private String code;
     //是否可用，默认可用
     private Boolean available = true;
+    //是否公有的
+    private Boolean common = false;
     //如果是权限的类型的话，指明属于哪个菜单类型权限
     private Authority menu;
     //角色
@@ -136,11 +138,31 @@ public class Authority implements Comparable<Authority>, Serializable
         this.available = available;
     }
 
+    @Column(nullable = false)
+    public Boolean getCommon()
+    {
+        return common;
+    }
+
+    public void setCommon(Boolean common)
+    {
+        this.common = common;
+    }
+
     @Override
     public String toString()
     {
+        return "Authority{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    @Transient
+    public String getDesc()
+    {
         return "名称：" + name + "\r\n" +
-                "类型：" + (type == Param.MENU_TYPE? "菜单" : "权限") + "\r\n" +
+                "类型：" + (type == Constants.MENU_TYPE? "菜单" : "权限") + "\r\n" +
                 "URL：" + url + "\r\n" +
                 "权限代码：" + code + "\r\n" +
                 "是否可用：" + (available? "是" : "否");

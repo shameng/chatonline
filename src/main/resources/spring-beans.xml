@@ -69,7 +69,7 @@
     </bean>
 
     <!--启用缓存注解功能，这个是必须的，否则注解不会生效，另外，该注解一定要声明在spring主配置文件中才会生效-->
-    <cache:annotation-driven cache-manager="cacheManager"/>
+    <cache:annotation-driven cache-manager="cacheManager" key-generator="keyGenerator"/>
     <!--cacheManager工厂类，指定ehcache.xml的位置-->
     <bean id="cacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
         <property name="configLocation" value="classpath:ehcache.xml"/>
@@ -78,6 +78,8 @@
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
         <property name="cacheManager" ref="cacheManagerFactory"/>
     </bean>
+    <!--缓存key生成器-->
+    <bean id="keyGenerator" class="com.meng.chatonline.cache.MyKeyGenerator"></bean>
 
     <!--配置事务管理器-->
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">

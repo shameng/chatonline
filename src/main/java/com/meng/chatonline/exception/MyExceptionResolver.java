@@ -1,6 +1,6 @@
 package com.meng.chatonline.exception;
 
-import com.meng.chatonline.Param;
+import com.meng.chatonline.Constants;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.UnauthorizedException;
@@ -30,9 +30,9 @@ public class MyExceptionResolver implements HandlerExceptionResolver
         if (e instanceof LoginException)
         {
             if (e.getMessage().equals(UnknownAccountException.class.getName()))
-                mav.addObject(Param.ERROR_MSG, "用户名不存在！");
+                mav.addObject(Constants.ERROR_MSG, "用户名不存在！");
             else if (e.getMessage().equals(IncorrectCredentialsException.class.getName()))
-                mav.addObject(Param.ERROR_MSG, "用户名或密码错误！");
+                mav.addObject(Constants.ERROR_MSG, "用户名或密码错误！");
 
             mav.setViewName(((LoginException) e).getViewName());
         }
@@ -44,7 +44,7 @@ public class MyExceptionResolver implements HandlerExceptionResolver
         //如果是未知错误
         else
         {
-            mav.addObject(Param.ERROR_MSG, "未知错误！");
+            mav.addObject(Constants.ERROR_MSG, "未知错误！");
             mav.setViewName("error/error");
         }
         return mav;

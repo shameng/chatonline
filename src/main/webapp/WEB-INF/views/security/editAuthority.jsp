@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/views/common.jsp"%>
-<%@ page import="com.meng.chatonline.Param" %>
+<%@ page import="com.meng.chatonline.Constants" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
@@ -17,17 +17,17 @@
     <script type="text/javascript" language="JavaScript" src="${contextPath}/js/jquery-1.12.1.js"></script>
     <script type="text/javascript">
         $(function () {
-            hideOrShowMenu($(":radio[name='type']:checked"));
+            hideOrShowAuthTr($(":radio[name='type']:checked"));
             $(":radio[name='type']").change(function () {
-                hideOrShowMenu(this);
+                hideOrShowAuthTr(this);
             })
 
             //隐藏还是显示所属菜单表单
-            function hideOrShowMenu(typeRadio) {
-                if ($(typeRadio).val() == <%=Param.AUTH_TYPE%>)
-                    $("#menuTr").show();
+            function hideOrShowAuthTr(typeRadio) {
+                if ($(typeRadio).val() == <%=Constants.AUTH_TYPE%>)
+                    $(".authTr").show();
                 else
-                    $("#menuTr").hide();
+                    $(".authTr").hide();
             }
 
             $("form").submit(function () {
@@ -65,7 +65,7 @@
                         <tr>
                             <td>权限类型：</td>
                             <td>
-                                <c:set var="menuType" value="<%=Param.MENU_TYPE%>"></c:set>
+                                <c:set var="menuType" value="<%=Constants.MENU_TYPE%>"></c:set>
                                 <c:choose>
                                     <c:when test="${authority != null && authority.type == menuType}">
                                         菜单
@@ -73,7 +73,7 @@
                                     </c:when>
                                     <c:otherwise>
                                         <form:radiobutton path="type" value="${menuType}"/>菜单
-                                        <form:radiobutton path="type" value="<%=Param.AUTH_TYPE%>"/>权限
+                                        <form:radiobutton path="type" value="<%=Constants.AUTH_TYPE%>"/>权限
                                         <span class="error"><form:errors path="type"/></span>
                                     </c:otherwise>
                                 </c:choose>
@@ -93,11 +93,15 @@
                                 <span class="error"><form:errors path="code"/></span>
                             </td>
                         </tr>
-                        <tr id="menuTr">
+                        <tr class="authTr">
                             <td>所属菜单：</td>
                             <td><form:select path="menu.id" items="${menus}" itemLabel="name" itemValue="id"/></td>
                         </tr>
-                        <tr>
+                        <tr class="authTr">
+                            <td>是否公共的：</td>
+                            <td><form:checkbox path="common"/></td>
+                        </tr>
+                        <tr class="authTr">
                             <td>是否可用：</td>
                             <td><form:checkbox path="available"/></td>
                         </tr>

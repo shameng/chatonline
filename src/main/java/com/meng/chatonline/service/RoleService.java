@@ -28,4 +28,5 @@ public interface RoleService extends BaseService<Role>
 
     //获得公有角色
     public List<Role> findCommonRoles();
+
 }

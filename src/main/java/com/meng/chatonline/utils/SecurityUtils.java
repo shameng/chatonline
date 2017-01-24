@@ -1,6 +1,6 @@
 package com.meng.chatonline.utils;
 
-import com.meng.chatonline.Param;
+import com.meng.chatonline.Constants;
 import com.meng.chatonline.model.ActiveUser;
 import com.meng.chatonline.model.User;
 import com.meng.chatonline.model.security.Authority;
@@ -48,12 +48,12 @@ public class SecurityUtils
         HashMap<Authority, List<Authority>> map = new LinkedHashMap<Authority, List<Authority>>();
         for (Authority auth : authorities)
         {
-            if (auth.getType() == Param.MENU_TYPE)
+            if (auth.getType() == Constants.MENU_TYPE)
                 map.put(auth, new ArrayList<Authority>());
         }
         for (Authority auth : authorities)
         {
-            if (auth.getType() == Param.AUTH_TYPE)
+            if (auth.getType() == Constants.AUTH_TYPE)
                 if (map.get(auth.getMenu()) != null)
                     map.get(auth.getMenu()).add(auth);
         }

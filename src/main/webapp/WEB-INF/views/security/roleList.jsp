@@ -1,4 +1,4 @@
-<%@ page import="com.meng.chatonline.Param" %><%--
+<%@ page import="com.meng.chatonline.Constants" %><%--
   Created by IntelliJ IDEA.
   User: bang
   Date: 2017/1/6
@@ -52,7 +52,7 @@
                             <th>编辑</th>
                             <th>删除</th>
                         </tr>
-                        <c:set var="menuType" value="<%=Param.MENU_TYPE%>"></c:set>
+                        <c:set var="menuType" value="<%=Constants.MENU_TYPE%>"></c:set>
                         <c:forEach items="${roles}" var="role">
                             <tr id="${role.id}role">
                                 <td>${role.name}</td>
@@ -60,15 +60,21 @@
                                     <ul>
                                         <c:forEach items="${role.authorities}" var="auth">
                                             <c:if test="${auth.type != menuType}">
-                                                <li class="${auth.available?'available':'unavailable'}" title="${auth}">${auth.name}</li>
+                                                <li class="${auth.available?'available':'unavailable'}" title="${auth.desc}">${auth.name}</li>
                                             </c:if>
                                         </c:forEach>
                                     </ul>
                                 </td>
                                 <td>${role.common? "是" : "否"}</td>
                                 <td>${role.available? "是" : "否"}</td>
-                                <td><a href="role/editRole?roleId=${role.id}">编辑</a></td>
-                                <td><a href="javascript:deleteRole('${role.id}')">删除</a></td>
+                                <c:if test="${role.common}">
+                                    <td>包含所有公共权限</td>
+                                    <td>不可删除</td>
+                                </c:if>
+                                <c:if test="${!role.common}">
+                                    <td><a href="role/editRole?roleId=${role.id}">编辑</a></td>
+                                    <td><a href="javascript:deleteRole('${role.id}')">删除</a></td>
+                                </c:if>
                             </tr>
                         </c:forEach>
                     </table>

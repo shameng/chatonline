@@ -1,11 +1,15 @@
 package com.meng.chatonline.controller;
 
+import com.meng.chatonline.Constants;
 import com.meng.chatonline.model.ActiveUser;
 import com.meng.chatonline.model.Broadcast;
 import com.meng.chatonline.model.User;
 import com.meng.chatonline.service.BroadcastService;
 import com.meng.chatonline.websocket.MyWebSocketHandler;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -65,7 +69,7 @@ public class BroadcastController
             return "editBroadcast";
         }
 
-        ActiveUser user = (ActiveUser) session.getAttribute("user");
+        ActiveUser user = (ActiveUser) session.getAttribute(Constants.PRINCIPAL);
         broadcast.setUtterer(new User(user.getId()));
         broadcastService.saveBroadcast(broadcast);
 
@@ -78,18 +82,25 @@ public class BroadcastController
     @RequiresPermissions("broadcast:delete")
     @ResponseBody
     @RequestMapping("/deleteBroadcast")
-    public String deleteBroadcast(@RequestParam(value = "id",required = true) String id)
+    public String deleteBroadcast(@RequestParam(value = "id",required = true) Integer id)
     {
-        try
+        Subject subject = SecurityUtils.getSubject();
+        ActiveUser user = (ActiveUser) subject.getPrincipals().getPrimaryPrincipal();
+        //判断是否该公告是否属于目前的shiro主体
+        if (this.broadcastService.belong(id, user))
         {
-            this.broadcastService.deleteBroadcast(Integer.parseInt(id));
-            return "1";
+            try
+            {
+                this.broadcastService.deleteBroadcast(id);
+                return "1";
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+                return "0";
+            }
         }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            return "0";
-        }
+        else
+            throw new UnauthorizedException();
     }
 
 }

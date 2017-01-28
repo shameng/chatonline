@@ -51,6 +51,8 @@
     <!--自定义Realm-->
     <bean id="realm" class="com.meng.chatonline.security.MyRealm">
         <property name="credentialsMatcher" ref="credentialsMatcher"></property>
+        <!--设置Realm的名字-->
+        <property name="name" value="myRealm"></property>
     </bean>
 
     <!--凭证匹配器-->
@@ -115,7 +117,7 @@
     <bean id="sessionListener1" class="com.meng.chatonline.security.listener.MySessionListener"></bean>
 
     <!-- 相当于调用SecurityUtils.setSecurityManager(securityManager)
-        不知道有什么用？-->
+        设置了以后可以直接通过SecurityUtils.getSubject()得到Subject-->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="staticMethod" value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
         <property name="arguments" ref="securityManager"/>
@@ -125,7 +127,7 @@
     <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
         <!--必须设置，否则会报异常root cause
         java.lang.IllegalStateException: Cookie name cannot be null/empty.-->
-        <constructor-arg value="sessionId"/>
+        <constructor-arg type="java.lang.String" value="sessionId"/>
         <property name="httpOnly" value="true"></property>
         <!--maxAge=-1表示浏览器关闭时失效此Cookie-->
         <property name="maxAge" value="-1"></property>
@@ -133,7 +135,7 @@
 
     <!--rememberMe cookie-->
     <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
-        <constructor-arg value="rememberMe"/>
+        <constructor-arg type="java.lang.String" value="rememberMe"/>
         <property name="httpOnly" value="true"></property>
         <!--有效期为30天，单位为秒-->
         <property name="maxAge" value="2592000"></property>

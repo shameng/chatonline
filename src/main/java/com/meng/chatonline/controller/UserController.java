@@ -5,7 +5,7 @@ import com.meng.chatonline.model.security.Role;
 import com.meng.chatonline.service.RoleService;
 import com.meng.chatonline.service.UserService;
 import com.meng.chatonline.utils.CollectionUtils;
-import com.meng.chatonline.utils.SecurityUtils;
+import com.meng.chatonline.utils.MySecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-
-import static javafx.scene.input.KeyCode.R;
 
 /**
  * @Author xindemeng
@@ -38,7 +35,7 @@ public class UserController
     {
         List<User> users = this.userService.findUsersWithRole();
         //把password和salt属性置为null
-        users = SecurityUtils.passwordAndSaltBeNull(users);
+        users = MySecurityUtils.passwordAndSaltBeNull(users);
         map.put("users", users);
         return "security/userList";
     }

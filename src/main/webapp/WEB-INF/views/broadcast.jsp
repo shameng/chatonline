@@ -86,7 +86,7 @@
                                     <div class="broadcastFrom">
                                         ${broadcast.utterer.name}&nbsp;发表于&nbsp;
                                         <fmt:formatDate value="${broadcast.date}" pattern="yyyy-MM-dd HH:mm"></fmt:formatDate>
-                                        <c:if test="${broadcast.utterer.id == sessionScope.user.id}">
+                                        <c:if test="${broadcast.utterer.id == sessionScope.principal.id}">
                                             <shiro:hasPermission name="broadcast:delete">
                                                 <a href="javascript:deleteBroadcast('${broadcast.id}')">删除</a>
                                             </shiro:hasPermission>

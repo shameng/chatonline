@@ -11,6 +11,6 @@
     <title>会话过期</title>
 </head>
 <body>
-    你的会话已经过期，请<a href="login">重新登录</a>.
+    你的会话已经过期，请<a href="logout">重新登录</a>.
 </body>
 </html>

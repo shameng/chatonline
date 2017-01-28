@@ -8,6 +8,13 @@
 #securityList table
 {
     width:900px;
+    border:1px solid;
+    border-spacing: 0;
+    text-align: center;
+}
+#securityList table td,#securityList table th
+{
+    border:1px solid;
 }
 .menu
 {

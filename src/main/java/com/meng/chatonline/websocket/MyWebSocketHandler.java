@@ -8,7 +8,7 @@ import com.meng.chatonline.model.Message;
 import com.meng.chatonline.model.User;
 import com.meng.chatonline.service.MessageService;
 import com.meng.chatonline.service.UserService;
-import com.meng.chatonline.utils.SecurityUtils;
+import com.meng.chatonline.utils.MySecurityUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.*;
 
@@ -78,8 +78,8 @@ public class MyWebSocketHandler implements WebSocketHandler
 
         User fromUser = userService.getEntity(msg.getFromUser().getId());
         User toUser = userService.getEntity(msg.getToUser().getId());
-        msg.setFromUser(SecurityUtils.userToActiveUser(fromUser));
-        msg.setToUser(SecurityUtils.userToActiveUser(toUser));
+        msg.setFromUser(MySecurityUtils.userToActiveUser(fromUser));
+        msg.setToUser(MySecurityUtils.userToActiveUser(toUser));
 
         TextMessage textMessage = new TextMessage(new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd HH:mm:ss").create().toJson(msg));

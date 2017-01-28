@@ -36,7 +36,13 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven>
+        <!--配置自定义的注释解析器-->
+        <mvc:argument-resolvers>
+            <bean class="com.meng.chatonline.annotation.resolver.CurrentUserHandlerMethodArgumentResolver"></bean>
+        </mvc:argument-resolvers>
+    </mvc:annotation-driven>
+
     <mvc:default-servlet-handler/>
 
     <!-- 配置国际化资源文件 -->

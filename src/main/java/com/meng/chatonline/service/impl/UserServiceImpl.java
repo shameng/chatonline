@@ -6,7 +6,7 @@ import com.meng.chatonline.model.security.Role;
 import com.meng.chatonline.security.MyRealm;
 import com.meng.chatonline.service.RoleService;
 import com.meng.chatonline.service.UserService;
-import com.meng.chatonline.utils.SecurityUtils;
+import com.meng.chatonline.utils.MySecurityUtils;
 import com.meng.chatonline.utils.ValidationUtils;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
@@ -17,8 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.List;
-
-import static org.apache.shiro.web.filter.mgt.DefaultFilter.roles;
 
 /**
  * @Author xindemeng
@@ -85,9 +83,9 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     {
         System.out.println("------------------新建用户----------------------");
         //使用md5加密密码
-        String salt = SecurityUtils.generateSalt();
+        String salt = MySecurityUtils.generateSalt();
         user.setSalt(salt);
-        user.setPassword(SecurityUtils.md5Default(user.getPassword(), salt));
+        user.setPassword(MySecurityUtils.md5Default(user.getPassword(), salt));
 
         //分配公有角色
         List<Role> commonRoles = this.roleService.findCommonRoles();

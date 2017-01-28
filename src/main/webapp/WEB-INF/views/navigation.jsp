@@ -18,15 +18,17 @@
                 var href = $(this).attr("href");
                 href = href.substring(href.lastIndexOf("/") + 1);
                 $(this).click(function () {
-                    if (url.indexOf(href) >= 0)
+                    if (url == href)
                         return false;
                 })
             })
         })
     </script>
-    <shiro:hasPermission name="chatRoom:chatRoom">
-        [<a href="${contextPath}/chatRoom" target="_blank">聊天室</a>]&nbsp;&nbsp;
-    </shiro:hasPermission>
+    <c:if test="${!sessionScope.isRunAs}">
+        <shiro:hasPermission name="chatRoom:chatRoom">
+            [<a href="${contextPath}/chatRoom" target="_blank">聊天室</a>]&nbsp;&nbsp;
+        </shiro:hasPermission>
+    </c:if>
     <shiro:hasPermission name="broadcast:query">
         [<a href="${contextPath}/broadcast" target="_blank">公告</a>]&nbsp;&nbsp;
     </shiro:hasPermission>

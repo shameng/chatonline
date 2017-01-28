@@ -1,5 +1,6 @@
 package com.meng.chatonline.security.filter;
 
+import com.meng.chatonline.Constants;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
@@ -51,7 +52,12 @@ public class MyFormAuthenticationFilter extends FormAuthenticationFilter
         //把User放到session里
         Session session = subject.getSession(false);
         if (session != null)
-            session.setAttribute("user", subject.getPrincipal());
+        {
+            //登陆的用户
+            session.setAttribute(Constants.CURRENT_USER, subject.getPrincipal());
+            //shiro主体用户，与切换身份以后分别开来
+            session.setAttribute(Constants.PRINCIPAL, subject.getPrincipal());
+        }
 
         return super.onLoginSuccess(token, subject, request, response);
     }

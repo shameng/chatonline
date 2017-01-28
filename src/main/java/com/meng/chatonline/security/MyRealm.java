@@ -82,11 +82,11 @@ public class MyRealm extends AuthorizingRealm
     }
 
     // 设置realm的名称
-    @Override
-    public String getName()
-    {
-        return this.getClass().getName();
-    }
+//    @Override
+//    public String getName()
+//    {
+//        return MyRealm.class.getName();
+//    }
 
     //清除当前用户的权限缓存,通常在service上修改完权限以后调用该方法
     public void clearMyCachedAuthorizationInfo()

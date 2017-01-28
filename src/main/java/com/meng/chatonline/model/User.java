@@ -55,6 +55,14 @@ public class User implements Serializable
         this.roles = roles;
     }
 
+    public User(Integer id, String account, String name, Boolean superAdmin)
+    {
+        this.id = id;
+        this.account = account;
+        this.name = name;
+        this.superAdmin = superAdmin;
+    }
+
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Id
     public Integer getId()

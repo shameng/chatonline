@@ -6,7 +6,7 @@ import com.meng.chatonline.model.security.Role;
 import com.meng.chatonline.service.AuthorityService;
 import com.meng.chatonline.service.RoleService;
 import com.meng.chatonline.service.UserService;
-import com.meng.chatonline.utils.SecurityUtils;
+import com.meng.chatonline.utils.MySecurityUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -33,10 +33,10 @@ public class SecurityTest
     @Test
     public void testMd5()
     {
-        String salt = SecurityUtils.generateSalt();
+        String salt = MySecurityUtils.generateSalt();
         System.out.println(salt);
 
-        String md5 = SecurityUtils.md5Default("222", salt);
+        String md5 = MySecurityUtils.md5Default("222", salt);
         System.out.println(md5);
     }
 

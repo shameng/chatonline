@@ -22,4 +22,9 @@ public class ActiveUser extends User implements Serializable
     {
         super(id, account, name);
     }
+
+    public ActiveUser(Integer id, String account, String name, Boolean superAdmin)
+    {
+        super(id, account, name, superAdmin);
+    }
 }

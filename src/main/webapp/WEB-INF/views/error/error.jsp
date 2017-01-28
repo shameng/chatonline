@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>未知错误</title>
+    <title>错误</title>
 </head>
 <body>
     ${errorMsg}

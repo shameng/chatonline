@@ -1,6 +1,7 @@
 package com.meng.chatonline.service.impl;
 
 import com.meng.chatonline.dao.BaseDao;
+import com.meng.chatonline.model.ActiveUser;
 import com.meng.chatonline.model.Broadcast;
 import com.meng.chatonline.service.BroadcastService;
 import org.springframework.cache.annotation.CacheConfig;
@@ -63,6 +64,20 @@ public class BroadcastServiceImpl extends BaseServiceImpl<Broadcast> implements 
 //        System.out.println("删除公告");
         Broadcast b = this.getEntity(id);
         this.deleteEntity(b);
+    }
+
+    /**
+     * 该公告是否是由指定用户发布的
+     *
+     * @param id   公告id
+     * @param user 指定用户
+     * @return
+     */
+    @Transactional
+    public boolean belong(Integer id, ActiveUser user)
+    {
+        Broadcast broadcast = this.getEntity(id);
+        return broadcast.getUtterer().getId().equals(user.getId());
     }
 
 }

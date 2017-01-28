@@ -19,4 +19,9 @@ public interface Constants
     String SHIRO_LOGIN_FAILURE = "shiroLoginFailure";
     //错误信息
     String ERROR_MSG = "errorMsg";
+
+    //当前用户在session中的key
+    String CURRENT_USER = "user";
+    //当前shiro主体在session的key
+    String PRINCIPAL = "principal";
 }

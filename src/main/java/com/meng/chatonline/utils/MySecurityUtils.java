@@ -4,7 +4,9 @@ import com.meng.chatonline.Constants;
 import com.meng.chatonline.model.ActiveUser;
 import com.meng.chatonline.model.User;
 import com.meng.chatonline.model.security.Authority;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.subject.Subject;
 
 import java.util.*;
 
@@ -13,7 +15,7 @@ import java.util.*;
  *
  * 安全工具类
  */
-public class SecurityUtils
+public class MySecurityUtils
 {
     //MD5加密
     public static String md5(String password, String salt, int hashIterations)
@@ -38,7 +40,7 @@ public class SecurityUtils
     //把User转换为ActiveUser
     public static ActiveUser userToActiveUser(User user)
     {
-        return new ActiveUser(user.getId(), user.getAccount(), user.getName());
+        return new ActiveUser(user.getId(), user.getAccount(), user.getName(), user.getSuperAdmin());
     }
 
     //把权限按菜单分开，key是菜单，value是菜单包含的权限
@@ -69,5 +71,12 @@ public class SecurityUtils
             user.setSalt(null);
         }
         return users;
+    }
+
+    //判断当前用户是否为runAs状态
+    public static boolean isRunAs()
+    {
+        Subject subject = SecurityUtils.getSubject();
+        return subject.isRunAs();
     }
 }

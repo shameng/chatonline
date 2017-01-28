@@ -52,7 +52,7 @@
                     </span>
                 </div>
                 <div id="securityList">
-                    <table border="1px" cellspacing="0">
+                    <table border="1px" cellspacing="0" style="text-align: left">
                         <tr>
                             <th>权限名称</th>
                             <th>权限类型</th>

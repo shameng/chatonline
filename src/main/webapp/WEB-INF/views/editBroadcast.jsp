@@ -38,7 +38,7 @@
                         <tr>
                             <td>&nbsp;发起人:</td>
                             <td>
-                                ${sessionScope.user.name}
+                                ${sessionScope.principal.name}
                             </td>
                         </tr>
                         <tr>

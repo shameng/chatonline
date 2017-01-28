@@ -3,7 +3,7 @@ package com.meng.chatonline.controller;
 import com.meng.chatonline.Constants;
 import com.meng.chatonline.model.security.Authority;
 import com.meng.chatonline.service.AuthorityService;
-import com.meng.chatonline.utils.SecurityUtils;
+import com.meng.chatonline.utils.MySecurityUtils;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
@@ -33,7 +33,7 @@ public class AuthorityController
     public String authorityList(Map<String, Object> map)
     {
         List<Authority> authorities = this.authorityService.findAllAuthorities();
-        map.put("authorities", SecurityUtils.getAuthoritiesSortedByMenu(authorities));
+        map.put("authorities", MySecurityUtils.getAuthoritiesSortedByMenu(authorities));
         return "security/authorityList";
     }
 

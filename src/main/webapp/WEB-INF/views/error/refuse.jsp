@@ -14,6 +14,6 @@
     你没有权限！
     <a href="javascript:window.history.go(-1)">返回</a>
     <br>
-    <a href="logout">重新登录</a>
+    <a href="login">重新登录</a>
 </body>
 </html>

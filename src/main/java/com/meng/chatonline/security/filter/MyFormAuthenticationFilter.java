@@ -1,7 +1,12 @@
 package com.meng.chatonline.security.filter;
 
 import com.meng.chatonline.Constants;
+import com.meng.chatonline.model.ActiveUser;
+import com.meng.chatonline.utils.ValidationUtils;
+import com.meng.chatonline.websocket.MyWebSocketHandler;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.cache.Cache;
+import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.AccessControlFilter;
@@ -9,8 +14,10 @@ import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.util.SavedRequest;
 import org.apache.shiro.web.util.WebUtils;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author xindemeng
@@ -19,6 +26,9 @@ import javax.servlet.ServletResponse;
  */
 public class MyFormAuthenticationFilter extends FormAuthenticationFilter
 {
+    @Resource
+    private MyWebSocketHandler webSocketHandler;
+
     //重写该方法，使successUrl属性生效
     @Override
     protected void issueSuccessRedirect(ServletRequest request, ServletResponse response) throws Exception
@@ -60,6 +70,44 @@ public class MyFormAuthenticationFilter extends FormAuthenticationFilter
         }
 
         return super.onLoginSuccess(token, subject, request, response);
+    }
+
+    @Override
+    protected boolean onAccessDenied(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
+        //如果发生了验证码异常，则不执行登陆操作
+        if(request.getAttribute(Constants.SHIRO_LOGIN_FAILURE) != null) {
+            return true;
+        }
+
+        //下面才执行用户登陆
+        return super.onAccessDenied(request, response, mappedValue);
+    }
+
+    //重写此方法是用于一种情况：当用户先不注销登陆而直接再次登陆时，会先把之前登陆的用户注销掉再登陆
+    @Override
+    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue)
+    {
+        if (isLoginRequest(request, response))
+        {
+            if (isLoginSubmission(request, response))
+            {
+                //本次用户登陆账号
+                String account = this.getUsername(request);
+
+                Subject subject = this.getSubject(request, response);
+                //之前登陆的用户
+                ActiveUser user = (ActiveUser) subject.getPrincipal();
+                //如果两次登陆的用户不一样，则先退出之前登陆的用户
+                if (account != null && user != null && !account.equals(user.getAccount()))
+                {
+                    subject.logout();
+                    //广播退出登陆
+                    webSocketHandler.broadcastLogoutMsg(user);
+                }
+            }
+        }
+
+        return super.isAccessAllowed(request, response, mappedValue);
     }
 
 }

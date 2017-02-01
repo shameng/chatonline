@@ -15,7 +15,8 @@
                 <entry key="authc" value-ref="authenticationFilter"></entry>
                 <entry key="logout" value-ref="logoutFilter"></entry>
                 <entry key="ssl" value-ref="sslFilter"></entry>
-                <entry key="kickout" value-ref="kickout"></entry>
+                <entry key="kickout" value-ref="kickoutSessionControlFilter"></entry>
+                <entry key="captcha" value-ref="captchaValidationFilter"></entry>
             </map>
         </property>
         <!-- 过滤器链定义，从上向下顺序执行，一般将/**放在最下边 -->
@@ -29,7 +30,9 @@
                 /register/** = anon
                 <!--登陆地址采用SSL，即HTTPS协议，？此时还必须加上authc，否则不执行登录验证-->
                 <!--/login = ssl,authc-->
-                /login = authc
+                <!--注意：验证码要可匿名访问-->
+                /captcha* = anon
+                /login = captcha,authc
                 <!-- 请求 /logout 地址，shiro去清除session-->
                 /logout = logout
                 <!--测试 user-->
@@ -159,12 +162,18 @@
     </bean>
 
     <!--配置自定义并发登录人数控制过滤器-->
-    <bean id="kickout" class="com.meng.chatonline.security.filter.KickoutSessionControlFilter">
+    <bean id="kickoutSessionControlFilter" class="com.meng.chatonline.security.filter.KickoutSessionControlFilter">
         <property name="kickoutAfter" value="false"></property>
         <property name="sessionManager" ref="shiroSessionManager"></property>
         <property name="kickoutUrl" value="/login?kickout=1"></property>
         <property name="maxSession" value="1"></property>
         <property name="cacheManager" ref="shiroCacheManager"></property>
         <property name="cacheName" value="userSessionCache"></property>
+    </bean>
+
+    <!--验证码过滤器-->
+    <bean id="captchaValidationFilter" class="com.meng.chatonline.security.filter.CaptchaValidationFilter">
+        <property name="captchaEnabled" value="true"></property>
+        <property name="captchaParam" value="captcha"></property>
     </bean>
 </beans>

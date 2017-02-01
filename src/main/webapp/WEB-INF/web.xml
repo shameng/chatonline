@@ -15,20 +15,6 @@
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
 
-  <servlet>
-    <servlet-name>dispatcherServlet</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <init-param>
-      <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:spring-mvc.xml</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>dispatcherServlet</servlet-name>
-    <url-pattern>/</url-pattern>
-  </servlet-mapping>
-
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -62,7 +48,31 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
-  <!--？没效果-->
+  <!-- 验证码过滤器需要放到Shiro之后，因为Shiro将包装HttpSession 如果不，可能造成两次的sesison id 不一样 -->
+  <filter>
+    <filter-name>captchaFilter</filter-name>
+    <filter-class>com.meng.chatonline.security.captcha.JCaptchaFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>captchaFilter</filter-name>
+    <url-pattern>/captcha.jpg</url-pattern>
+  </filter-mapping>
+
+    <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+  <!--处理InvalidSessionException异常-->
   <error-page>
     <exception-type>org.apache.shiro.session.InvalidSessionException</exception-type>
     <location>/invalidSession</location>

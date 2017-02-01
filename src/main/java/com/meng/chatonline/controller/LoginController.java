@@ -21,7 +21,7 @@ public class LoginController
         return "login";
     }
 
-    //使用了shiro框架以后，只有登陆验证有异常（或者没有注销登录但前往登录页面登录用户???）时才会调用该方法
+    //使用了shiro框架以后，只有登陆验证有异常时才会调用该方法
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String doLogin(HttpServletRequest request) throws Exception
     {
@@ -31,6 +31,6 @@ public class LoginController
             System.out.println("---------------------" + shiroLoginFailure + "----------------");
             throw new LoginException(shiroLoginFailure);
         }
-        return "redirect:/login";
+        return "/chatRoom";
     }
 }

@@ -1,6 +1,9 @@
-package com.meng.chatonline.exception;
+package com.meng.chatonline.exception.resolver;
 
 import com.meng.chatonline.Constants;
+import com.meng.chatonline.exception.CaptchaException;
+import com.meng.chatonline.exception.LoginException;
+import com.meng.chatonline.exception.RunAsException;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -31,7 +34,9 @@ public class MyExceptionResolver implements HandlerExceptionResolver
         //如果是登陆异常
         if (e instanceof LoginException)
         {
-            if (e.getMessage().equals(UnknownAccountException.class.getName()))
+            if (e.getMessage().equals(CaptchaException.class.getName()))
+                mav.addObject(Constants.ERROR_MSG, "验证码错误！");
+            else if (e.getMessage().equals(UnknownAccountException.class.getName()))
                 mav.addObject(Constants.ERROR_MSG, "用户名不存在！");
             else if (e.getMessage().equals(IncorrectCredentialsException.class.getName()))
                 mav.addObject(Constants.ERROR_MSG, "用户名或密码错误！");

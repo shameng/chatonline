@@ -8,7 +8,7 @@
     /*background: url("../images/lufei.jpg");*/
     /*background-repeat:no-repeat;*/
     width:400px;
-    height:300px;
+    height:400px;
     /*以下设置div垂直水平居中,margin-left要求为width一半的负值，margin-top同理*/
     position: absolute;
     left:50%;
@@ -16,7 +16,7 @@
     margin-left:-200px;
     margin-top:-150px;
 }
-#loginDiv img{
+#loginImg{
     width:100%;
     height:100%;
 }
@@ -43,3 +43,7 @@
     font-family:"Comic Sans MS", cursive;
     text-align: left;
 }
+/*#captcha{*/
+    /*width: 100px;*/
+    /*height: 36px;;*/
+/*}*/

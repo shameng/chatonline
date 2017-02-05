@@ -45,7 +45,10 @@
             <input id="rememberMe" name="rememberMe" type="checkbox">
             <br>
             <c:if test="${not empty param.kickout}">
-                <font class="error">您被踢出登录。</font><br>
+                <font class="error">您已被踢出登录。</font><br>
+            </c:if>
+            <c:if test="${not empty param.forceLogout}">
+                <font class="error">您已被强制退出。</font><br>
             </c:if>
             <c:if test="${not empty errorMsg}">
                 <font class="error">${errorMsg}</font><br>

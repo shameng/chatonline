@@ -97,6 +97,8 @@
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-web:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-ehcache:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-core:2.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.shiro:shiro-quartz:1.3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.opensymphony.quartz:quartz:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: com.octo.captcha:jcaptcha-all:1.0-RC6" level="project" />
     <orderEntry type="library" name="Maven: quartz:quartz:1.5.1" level="project" />
     <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:1.2.1" level="project" />

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+    <description>functions</description>
+    <tlib-version>3.0</tlib-version>
+    <short-name>fn</short-name>
+    <uri>http://meng.com/chatonline/tags/functions</uri>
+
+    <function>
+        <description>是否强制登出</description>
+        <name>isForceLogout</name>
+        <function-class>com.meng.chatonline.taglib.Functions</function-class>
+        <function-signature>boolean isForceLogout(org.apache.shiro.session.Session)</function-signature>
+    </function>
+
+    <function>
+        <name>getUserAccount</name>
+        <function-class>com.meng.chatonline.taglib.Functions</function-class>
+        <function-signature>java.lang.String getUserAccount(org.apache.shiro.session.Session)</function-signature>
+    </function>
+
+    <function>
+        <name>getUserName</name>
+        <function-class>com.meng.chatonline.taglib.Functions</function-class>
+        <function-signature>java.lang.String getUserName(org.apache.shiro.session.Session)</function-signature>
+    </function>
+
+    <function>
+        <name>isMyself</name>
+        <function-class>com.meng.chatonline.taglib.Functions</function-class>
+        <function-signature>boolean isMyself(org.apache.shiro.session.Session,java.lang.String)</function-signature>
+    </function>
+
+</taglib>

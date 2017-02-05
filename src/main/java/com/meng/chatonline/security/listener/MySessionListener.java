@@ -1,11 +1,11 @@
 package com.meng.chatonline.security.listener;
 
 import com.google.gson.Gson;
-import com.meng.chatonline.model.ActiveUser;
 import com.meng.chatonline.model.User;
 import com.meng.chatonline.websocket.MyWebSocketHandler;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.SessionListenerAdapter;
+import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
 
 import javax.annotation.Resource;
@@ -19,12 +19,13 @@ public class MySessionListener extends SessionListenerAdapter
 {
     @Resource
     private MyWebSocketHandler webSocketHandler;
+    @Resource
+    private SessionDAO sessionDAO;
 
     @Override
     public void onStart(Session session)
     {
-        ActiveUser user = (ActiveUser) session.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY);
-        System.out.println("-----------------"+user + "的session"+session.getId()+"创建--------------");
+        System.out.println("-----------------session:"+session.getId()+"创建了--------------");
     }
 
     @Override
@@ -46,6 +47,9 @@ public class MySessionListener extends SessionListenerAdapter
         {
             //广播消息
             webSocketHandler.broadcastLogoutMsg(user);
+
+            //删除session缓存
+            this.removeSessionCache(session);
         }
     }
 
@@ -69,6 +73,16 @@ public class MySessionListener extends SessionListenerAdapter
         {
             //广播消息
             webSocketHandler.broadcastLogoutMsg(user);
+
+            //删除session缓存
+            removeSessionCache(session);
         }
+    }
+
+    //删除session缓存
+    private void removeSessionCache(Session session)
+    {
+        if (sessionDAO != null && session != null)
+            sessionDAO.delete(session);
     }
 }

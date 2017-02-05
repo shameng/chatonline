@@ -9,6 +9,7 @@ import com.meng.chatonline.service.UserRunAsService;
 import com.meng.chatonline.service.UserService;
 import com.meng.chatonline.utils.MySecurityUtils;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,7 @@ public class UserRunAsController
     @Resource
     private UserService userService;
 
+    @RequiresPermissions("runAs:query")
     @RequestMapping({"","/"})
     public String userRunAsList(@CurrentUser User loginUser, Map<String, Object> map)
     {
@@ -62,6 +64,7 @@ public class UserRunAsController
     }
 
     //授予用户身份
+    @RequiresPermissions("runAs:grant")
     @RequestMapping("/grant/{toUserId}")
     public String grant(@CurrentUser User loginUser, @PathVariable("toUserId") Integer toUserId,
                         RedirectAttributes redirectAttributes)
@@ -85,6 +88,7 @@ public class UserRunAsController
     }
 
     //回收用户身份
+    @RequiresPermissions("runAs:revoke")
     @RequestMapping("/revoke/{toUserId}")
     public String revoke(@CurrentUser User loginUser, @PathVariable("toUserId") Integer toUserId,
                          RedirectAttributes redirectAttributes)
@@ -101,6 +105,7 @@ public class UserRunAsController
     }
 
     //切换身份
+    @RequiresPermissions("runAs:switchTo")
     @RequestMapping("/switchTo/{fromUserId}")
     public String switchTo(@CurrentUser User loginUser, @PathVariable("fromUserId") Integer fromUserId,
                            RedirectAttributes redirectAttributes, HttpSession session)
@@ -126,6 +131,7 @@ public class UserRunAsController
     }
 
     //切换回到上一个身份
+    @RequiresPermissions("runAs:switchTo")
     @RequestMapping("/switchBack")
     public String switchBack(@CurrentUser User loginUser, HttpSession session,
                              RedirectAttributes redirectAttributes)
@@ -147,6 +153,7 @@ public class UserRunAsController
     }
 
     //切换回到自己身份
+    @RequiresPermissions("runAs:switchTo")
     @RequestMapping("/switchBackToMe")
     public String switchBackToMe(@CurrentUser User loginUser, HttpSession session,
                                  RedirectAttributes redirectAttributes)

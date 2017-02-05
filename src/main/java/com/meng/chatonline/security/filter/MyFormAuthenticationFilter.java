@@ -2,11 +2,8 @@ package com.meng.chatonline.security.filter;
 
 import com.meng.chatonline.Constants;
 import com.meng.chatonline.model.ActiveUser;
-import com.meng.chatonline.utils.ValidationUtils;
 import com.meng.chatonline.websocket.MyWebSocketHandler;
 import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.cache.Cache;
-import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.AccessControlFilter;
@@ -17,7 +14,6 @@ import org.apache.shiro.web.util.WebUtils;
 import javax.annotation.Resource;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author xindemeng

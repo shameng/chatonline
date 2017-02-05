@@ -24,4 +24,7 @@ public interface Constants
     String CURRENT_USER = "user";
     //当前shiro主体在session的key
     String PRINCIPAL = "principal";
+
+    //强制登出会话的key
+    String SESSION_FORCE_LOGOUT = "sessionForceLogout";
 }

@@ -17,6 +17,7 @@
                 <entry key="ssl" value-ref="sslFilter"></entry>
                 <entry key="kickout" value-ref="kickoutSessionControlFilter"></entry>
                 <entry key="captcha" value-ref="captchaValidationFilter"></entry>
+                <entry key="forceLogout" value-ref="forceLogoutFilter"></entry>
             </map>
         </property>
         <!-- 过滤器链定义，从上向下顺序执行，一般将/**放在最下边 -->
@@ -38,7 +39,7 @@
                 <!--测试 user-->
                 /user.jsp = user
                 <!--/** = authc 所有url都必须认证通过才可以访问-->
-                /** = kickout,authc
+                /** = forceLogout,kickout,authc
             </value>
         </property>
     </bean>
@@ -56,6 +57,7 @@
         <property name="credentialsMatcher" ref="credentialsMatcher"></property>
         <!--设置Realm的名字-->
         <property name="name" value="myRealm"></property>
+        <property name="authorizationCacheName" value="authorizationCache"></property>
     </bean>
 
     <!--凭证匹配器-->
@@ -99,6 +101,11 @@
         <property name="activeSessionsCacheName" value="shiro-activeSessionCache"></property>
     </bean>
 
+    <!-- 会话验证调度器 -->
+    <!--<bean id="sessionValidationScheduler" class="org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler">-->
+        <!--<property name="sessionValidationInterval" value="1800000"/>-->
+        <!--<property name="sessionManager" ref="shiroSessionManager"/>-->
+    <!--</bean>-->
     <bean id="shiroSessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
         <property name="sessionDAO" ref="sessionDAO"/>
         <property name="sessionIdCookie" ref="sessionIdCookie"></property>
@@ -106,8 +113,9 @@
         <property name="deleteInvalidSessions" value="true"/>
         <!-- 相隔多久检查一次session的有效性 -->
         <property name="sessionValidationInterval" value="1800000"/>
+        <!--<property name="sessionValidationScheduler" ref="sessionValidationScheduler"></property>-->
         <!-- session 默认有效时间为半小时 （毫秒单位）-->
-        <!--<property name="globalSessionTimeout" value="1800000"/>-->
+        <property name="globalSessionTimeout" value="1200000"/>
 
         <!--配置自定义session监听器-->
         <property name ="sessionListeners">
@@ -168,7 +176,7 @@
         <property name="kickoutUrl" value="/login?kickout=1"></property>
         <property name="maxSession" value="1"></property>
         <property name="cacheManager" ref="shiroCacheManager"></property>
-        <property name="cacheName" value="userSessionCache"></property>
+        <property name="cacheName" value="userSessionsCache"></property>
     </bean>
 
     <!--验证码过滤器-->
@@ -176,4 +184,7 @@
         <property name="captchaEnabled" value="true"></property>
         <property name="captchaParam" value="captcha"></property>
     </bean>
+
+    <!--强制退出过滤器-->
+    <bean id="forceLogoutFilter" class="com.meng.chatonline.security.filter.ForceLogoutFilter"></bean>
 </beans>

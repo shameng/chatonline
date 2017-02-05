@@ -39,7 +39,10 @@
         [<a href="${contextPath}/role" target="_blank">角色管理</a>]&nbsp;&nbsp;
     </shiro:hasPermission>
     <shiro:hasPermission name="authority:query">
-        [<a href="${contextPath}/authority" target="_blank">权限管理</a>]
+        [<a href="${contextPath}/authority" target="_blank">权限管理</a>]&nbsp;&nbsp;
+    </shiro:hasPermission>
+    <shiro:hasPermission name="session:query">
+        [<a href="${contextPath}/session" target="_blank">会话管理</a>]
     </shiro:hasPermission>
 </div>
 

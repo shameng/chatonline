@@ -226,6 +226,12 @@
             <artifactId>shiro-ehcache</artifactId>
             <version>${shiro.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-quartz</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+
 
         <!--开源的用来生成图形验证码的Java开源组件-->
         <!--<dependency>-->

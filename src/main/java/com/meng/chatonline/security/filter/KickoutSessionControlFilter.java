@@ -74,7 +74,7 @@ public class KickoutSessionControlFilter extends AccessControlFilter
                 //如果踢出后者
                 if (kickoutAfter)
                     kickoutSessionId = deque.removeFirst();
-                    //如果踢出前者
+                //如果踢出前者
                 else
                     kickoutSessionId = deque.removeLast();
 

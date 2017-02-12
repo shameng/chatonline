@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
 
     <!--与web.xml文件里的shiroFilter过滤器里的targetBeanName相对应-->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
@@ -33,6 +36,8 @@
                 <!--/login = ssl,authc-->
                 <!--注意：验证码要可匿名访问-->
                 /captcha* = anon
+                <!--OAuth可匿名访问-->
+                /oauth2/* = anon
                 /login = captcha,authc
                 <!-- 请求 /logout 地址，shiro去清除session-->
                 /logout = logout
@@ -62,8 +67,8 @@
 
     <!--凭证匹配器-->
     <bean id="credentialsMatcher" class="com.meng.chatonline.security.RetryLimitHashedCredentialsMatcher">
-        <property name="hashAlgorithmName" value="md5"></property>
-        <property name="hashIterations" value="2"></property>
+        <property name="hashAlgorithmName" value="${password.algorithmName}"></property>
+        <property name="hashIterations" value="${password.hashIterations}"></property>
 
         <property name="cacheManager" ref="shiroCacheManager"></property>
         <property name="cacheName" value="passwordRetryCache"></property>
@@ -78,6 +83,7 @@
         <property name="usernameParam" value="account"></property>
         <property name="passwordParam" value="password"></property>
         <property name="rememberMeParam" value="rememberMe"></property>
+        <property name="useSaveRequestToBeSuccessUrl" value="true"></property>
         <!--认证成功后跳转的页面，默认认证成功自动跳转到上一个请求路径-->
         <!--<property name="successUrl" value="/chatRoom"></property>-->
         <!--登陆验证地址，同shiroFilter配置的loginUrl值一样-->

@@ -20,11 +20,10 @@
         <javassist.version>3.18.1-GA</javassist.version>
         <org.slf4j.version>1.7.21</org.slf4j.version>
         <shiro.version>1.3.2</shiro.version>
-        <jcaptcha.version>2.0-alpha-1</jcaptcha.version>
+        <oauth2.version>1.0.2</oauth2.version>
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
@@ -77,6 +76,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${org.springframework.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!--<dependency>-->
@@ -231,26 +231,13 @@
             <artifactId>shiro-quartz</artifactId>
             <version>${shiro.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.2</version>
+        </dependency>
 
         <!--开源的用来生成图形验证码的Java开源组件-->
-        <!--<dependency>-->
-            <!--<groupId>com.octo.captcha</groupId>-->
-            <!--<artifactId>jcaptcha</artifactId>-->
-            <!--<version>2.0-alpha-1</version>-->
-        <!--</dependency>-->
-        <!--提供了与Servlet集成-->
-        <!--<dependency>-->
-            <!--<groupId>com.octo.captcha</groupId>-->
-            <!--<artifactId>jcaptcha-integration-simple-servlet</artifactId>-->
-            <!--<version>2.0-alpha-1</version>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<artifactId>servlet-api</artifactId>-->
-                    <!--<groupId>javax.servlet</groupId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>com.octo.captcha</groupId>
             <artifactId>jcaptcha-all</artifactId>
@@ -263,6 +250,18 @@
                     <artifactId>spring</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!--OAuth2集成 服务器端-->
+        <dependency>
+            <groupId>org.apache.oltu.oauth2</groupId>
+            <artifactId>org.apache.oltu.oauth2.authzserver</artifactId>
+            <version>${oauth2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.oltu.oauth2</groupId>
+            <artifactId>org.apache.oltu.oauth2.resourceserver</artifactId>
+            <version>${oauth2.version}</version>
         </dependency>
 
     </dependencies>

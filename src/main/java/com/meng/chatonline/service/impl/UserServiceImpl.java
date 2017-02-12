@@ -6,6 +6,7 @@ import com.meng.chatonline.model.security.Role;
 import com.meng.chatonline.security.MyRealm;
 import com.meng.chatonline.service.RoleService;
 import com.meng.chatonline.service.UserService;
+import com.meng.chatonline.service.helper.PasswordHelper;
 import com.meng.chatonline.utils.MySecurityUtils;
 import com.meng.chatonline.utils.ValidationUtils;
 import org.springframework.cache.annotation.CacheConfig;
@@ -29,6 +30,8 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     private RoleService roleService;
     @Resource
     private MyRealm realm;
+    @Resource
+    private PasswordHelper passwordHelper;
 
     //重写该方法，目的是覆盖超类中该方法的注解，指明注入的DAO对象，否则spring无法确定注入哪一个DAO
     @Resource(name="userDao")
@@ -82,10 +85,8 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     public void saveUser(User user)
     {
         System.out.println("------------------新建用户----------------------");
-        //使用md5加密密码
-        String salt = MySecurityUtils.generateSalt();
-        user.setSalt(salt);
-        user.setPassword(MySecurityUtils.md5Default(user.getPassword(), salt));
+        //分配salt和加密密码
+        passwordHelper.encryptPassword(user);
 
         //分配公有角色
         List<Role> commonRoles = this.roleService.findCommonRoles();

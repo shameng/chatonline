@@ -3,6 +3,7 @@ package com.meng.chatonline.exception.resolver;
 import com.meng.chatonline.Constants;
 import com.meng.chatonline.exception.CaptchaException;
 import com.meng.chatonline.exception.LoginException;
+import com.meng.chatonline.exception.OAuth2LoginException;
 import com.meng.chatonline.exception.RunAsException;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
@@ -34,18 +35,14 @@ public class MyExceptionResolver implements HandlerExceptionResolver
         //如果是登陆异常
         if (e instanceof LoginException)
         {
-            if (e.getMessage().equals(CaptchaException.class.getName()))
-                mav.addObject(Constants.ERROR_MSG, "验证码错误！");
-            else if (e.getMessage().equals(UnknownAccountException.class.getName()))
-                mav.addObject(Constants.ERROR_MSG, "用户名不存在！");
-            else if (e.getMessage().equals(IncorrectCredentialsException.class.getName()))
-                mav.addObject(Constants.ERROR_MSG, "用户名或密码错误！");
-            else if (e.getMessage().equals(ExcessiveAttemptsException.class.getName()))
-                mav.addObject(Constants.ERROR_MSG, "多次登陆失败，请稍后重试");
-            else if (e.getMessage().equals(AuthenticationException.class.getName()))
-                mav.addObject(Constants.ERROR_MSG, "登陆错误，请重试！");
-
+            this.handleModelAndView(e, mav);
             mav.setViewName(((LoginException) e).VIEW_NAME);
+        }
+        //如果是OAuth2登陆异常
+        else if (e instanceof OAuth2LoginException)
+        {
+            this.handleModelAndView(e, mav);
+            mav.setViewName(((OAuth2LoginException) e).VIEW_NAME);
         }
         //如果是权限验证异常，例如没有权限
         else if (e instanceof UnauthorizedException)
@@ -62,5 +59,19 @@ public class MyExceptionResolver implements HandlerExceptionResolver
             mav.setViewName("error/error");
         }
         return mav;
+    }
+
+    private void handleModelAndView(Exception e, ModelAndView mav)
+    {
+        if (e.getMessage().equals(CaptchaException.class.getName()))
+            mav.addObject(Constants.ERROR_MSG, "验证码错误！");
+        else if (e.getMessage().equals(UnknownAccountException.class.getName()))
+            mav.addObject(Constants.ERROR_MSG, "用户名不存在！");
+        else if (e.getMessage().equals(IncorrectCredentialsException.class.getName()))
+            mav.addObject(Constants.ERROR_MSG, "用户名或密码错误！");
+        else if (e.getMessage().equals(ExcessiveAttemptsException.class.getName()))
+            mav.addObject(Constants.ERROR_MSG, "多次登陆失败，请稍后重试");
+        else if (e.getMessage().equals(AuthenticationException.class.getName()))
+            mav.addObject(Constants.ERROR_MSG, "登陆错误，请重试！");
     }
 }

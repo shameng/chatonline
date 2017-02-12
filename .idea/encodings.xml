@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/OAuth2" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/dao/BaseDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/BaseService.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/meng/chatonline/service/impl/BaseServiceImpl.java" charset="UTF-8" />

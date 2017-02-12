@@ -98,6 +98,13 @@
            timeToLiveSeconds="0"
            overflowToDisk="true"
     />
+    <cache name="client-code-cache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="true"
+    />
 
     <!--Predefined caches.  Add your cache configuration settings here.
         If you do not have a configuration for your cache a WARNING will be issued when the

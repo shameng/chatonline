@@ -22,19 +22,23 @@ import javax.servlet.ServletResponse;
  */
 public class MyFormAuthenticationFilter extends FormAuthenticationFilter
 {
+    //是否使用先前访问的页面作为登陆成功后跳转到的页面，默认使用
+    private boolean useSaveRequestToBeSuccessUrl = true;
+
     @Resource
     private MyWebSocketHandler webSocketHandler;
 
-    //重写该方法，使successUrl属性生效
+    //重写该方法，是否启用successUrl属性
     @Override
     protected void issueSuccessRedirect(ServletRequest request, ServletResponse response) throws Exception
     {
         String successUrl = this.getSuccessUrl();
+        //是否添加上下文，例如本项目的上下文是"/chatonline"
         boolean contextRelative = true;
-        SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(request);
-        //如果没有设置successUrl属性，默认值值为"/"
-        if (successUrl.equals(DEFAULT_SUCCESS_URL))
+
+        if (isUseSaveRequestToBeSuccessUrl())
         {
+            SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(request);
             if (savedRequest != null && savedRequest.getMethod().equalsIgnoreCase(AccessControlFilter.GET_METHOD))
             {
                 //跳转到上一个请求路径
@@ -106,4 +110,13 @@ public class MyFormAuthenticationFilter extends FormAuthenticationFilter
         return super.isAccessAllowed(request, response, mappedValue);
     }
 
+    public boolean isUseSaveRequestToBeSuccessUrl()
+    {
+        return useSaveRequestToBeSuccessUrl;
+    }
+
+    public void setUseSaveRequestToBeSuccessUrl(boolean useSaveRequestToBeSuccessUrl)
+    {
+        this.useSaveRequestToBeSuccessUrl = useSaveRequestToBeSuccessUrl;
+    }
 }

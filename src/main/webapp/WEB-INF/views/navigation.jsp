@@ -42,7 +42,10 @@
         [<a href="${contextPath}/authority" target="_blank">权限管理</a>]&nbsp;&nbsp;
     </shiro:hasPermission>
     <shiro:hasPermission name="session:query">
-        [<a href="${contextPath}/session" target="_blank">会话管理</a>]
+        [<a href="${contextPath}/session" target="_blank">会话管理</a>]&nbsp;&nbsp;
+    </shiro:hasPermission>
+    <shiro:hasPermission name="client:query">
+        [<a href="${contextPath}/client" target="_blank">客户端管理</a>]&nbsp;&nbsp;
     </shiro:hasPermission>
 </div>
 

@@ -27,4 +27,10 @@ public class ActiveUser extends User implements Serializable
     {
         super(id, account, name, superAdmin);
     }
+
+    @Override
+    public String toString()
+    {
+        return super.toString();
+    }
 }

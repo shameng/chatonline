@@ -27,4 +27,11 @@ public interface Constants
 
     //强制登出会话的key
     String SESSION_FORCE_LOGOUT = "sessionForceLogout";
+
+    //OAuth2客户端验证失败信息
+    String INVALID_CLIENT_DESCRIPTION = "客户端验证失败，如错误的client_id/client_secret。";
+    String INVALID_CLIENT_AUTH_CODE = "错误的授权码";
+
+    String RESOURCE_SERVER_NAME = "chatonline";
+
 }

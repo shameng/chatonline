@@ -27,6 +27,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="chatonline" target="1.5" />
+      <module name="OAuth2" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

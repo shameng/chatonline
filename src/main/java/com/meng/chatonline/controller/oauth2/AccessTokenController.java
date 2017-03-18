@@ -1,6 +1,6 @@
 package com.meng.chatonline.controller.oauth2;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 import com.meng.chatonline.service.oauth2.OAuth2Service;
 import org.apache.oltu.oauth2.as.issuer.MD5Generator;
 import org.apache.oltu.oauth2.as.issuer.OAuthIssuer;

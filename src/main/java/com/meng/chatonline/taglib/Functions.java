@@ -1,6 +1,6 @@
 package com.meng.chatonline.taglib;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 import com.meng.chatonline.model.ActiveUser;
 import org.apache.shiro.session.Session;
 

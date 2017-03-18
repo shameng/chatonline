@@ -1,6 +1,6 @@
 package com.meng.chatonline.exception.resolver;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 import com.meng.chatonline.exception.CaptchaException;
 import com.meng.chatonline.exception.LoginException;
 import com.meng.chatonline.exception.OAuth2LoginException;

@@ -1,7 +1,6 @@
 package com.meng.chatonline.controller.oauth2;
 
-import com.meng.chatonline.Constants;
-import com.meng.chatonline.model.ActiveUser;
+import com.meng.chatonline.constant.Constants;
 import com.meng.chatonline.service.oauth2.OAuth2Service;
 import org.apache.oltu.oauth2.common.OAuth;
 import org.apache.oltu.oauth2.common.error.OAuthError;
@@ -22,8 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import static org.apache.shiro.web.filter.mgt.DefaultFilter.user;
 
 /**
  * @author xindemeng

@@ -1,6 +1,6 @@
 package com.meng.chatonline.controller;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.SessionDAO;

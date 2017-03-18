@@ -1,4 +1,4 @@
-<%@ page import="com.meng.chatonline.Constants" %><%--
+<%@ page import="com.meng.chatonline.constant.Constants" %><%--
   Created by IntelliJ IDEA.
   User: bang
   Date: 2016/11/3

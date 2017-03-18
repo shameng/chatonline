@@ -1,6 +1,6 @@
 package com.meng.chatonline.security.filter;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;

@@ -1,6 +1,6 @@
 package com.meng.chatonline.service.impl;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 import com.meng.chatonline.dao.BaseDao;
 import com.meng.chatonline.model.security.Authority;
 import com.meng.chatonline.model.security.Role;

@@ -1,6 +1,6 @@
 package com.meng.chatonline.controller.oauth2;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 import com.meng.chatonline.exception.OAuth2LoginException;
 import com.meng.chatonline.model.ActiveUser;
 import com.meng.chatonline.service.oauth2.ClientService;

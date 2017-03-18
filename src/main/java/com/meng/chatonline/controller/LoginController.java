@@ -1,6 +1,6 @@
 package com.meng.chatonline.controller;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 import com.meng.chatonline.exception.LoginException;
 import com.meng.chatonline.utils.ValidationUtils;
 import org.springframework.stereotype.Controller;

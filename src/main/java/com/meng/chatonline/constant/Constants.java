@@ -1,4 +1,4 @@
-package com.meng.chatonline;
+package com.meng.chatonline.constant;
 
 /**
  * @author uthor xindemeng

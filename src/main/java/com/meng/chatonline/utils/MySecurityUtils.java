@@ -1,6 +1,6 @@
 package com.meng.chatonline.utils;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 import com.meng.chatonline.model.ActiveUser;
 import com.meng.chatonline.model.User;
 import com.meng.chatonline.model.security.Authority;

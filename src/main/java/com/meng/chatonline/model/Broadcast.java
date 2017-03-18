@@ -1,6 +1,6 @@
 package com.meng.chatonline.model;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 

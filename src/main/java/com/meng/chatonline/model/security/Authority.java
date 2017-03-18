@@ -1,6 +1,6 @@
 package com.meng.chatonline.model.security;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;

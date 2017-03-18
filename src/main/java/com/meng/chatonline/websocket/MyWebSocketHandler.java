@@ -19,8 +19,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static com.meng.chatonline.Constants.LOGIN_BROADCAST_TYPE;
-import static com.meng.chatonline.Constants.LOGOUT_BROADCAST_TYPE;
+import static com.meng.chatonline.constant.Constants.LOGIN_BROADCAST_TYPE;
+import static com.meng.chatonline.constant.Constants.LOGOUT_BROADCAST_TYPE;
 
 
 /**

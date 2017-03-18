@@ -1,10 +1,8 @@
 package com.meng.chatonline.security.filter;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 import com.meng.chatonline.exception.CaptchaException;
 import com.meng.chatonline.security.captcha.JCaptchaUtils;
-import org.apache.shiro.cache.Cache;
-import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;
 

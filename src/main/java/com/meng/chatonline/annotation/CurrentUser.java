@@ -1,6 +1,6 @@
 package com.meng.chatonline.annotation;
 
-import com.meng.chatonline.Constants;
+import com.meng.chatonline.constant.Constants;
 
 import java.lang.annotation.*;
 
